@@ -272,11 +272,11 @@ const GROUNDS = [
         ]
       },
       {
-        "title": "Tolka Rovers vs Finglas FC",
+        "title": "Tolka Rovers vs Finglas United",
         "date": "2026-09-10",
-        "caption": "Tolka Rovers vs Finglas FC – Glasnevin, 10 Sep 2026.",
+        "caption": "Tolka Rovers vs Finglas United – Glasnevin, 10 Sep 2026.",
         "keywords": [
-          "Finglas FC",
+          "Finglas United",
           "Tolka Rovers"
         ]
       }
@@ -288,11 +288,11 @@ const GROUNDS = [
     "lon": -6.12861,
     "games": [
       {
-        "title": "Malahide United vs Finglas FC",
+        "title": "Malahide United vs Finglas United",
         "date": "2026-06-07",
-        "caption": "Malahide United vs Finglas FC – Malahide, 7 Jun 2026. Huge crowd as Malahide could win the league – and they did!",
+        "caption": "Malahide United vs Finglas United – Malahide, 7 Jun 2026. Huge crowd as Malahide could win the league – and they did!",
         "keywords": [
-          "Finglas FC",
+          "Finglas United",
           "League decider",
           "Malahide United"
         ]
