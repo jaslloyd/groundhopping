@@ -2,6 +2,8 @@
 
 A map of the Leinster Senior League football games I go to, plus the odd pre-season friendly and charity match. League of Ireland games already live in [Momento](https://momento.app), so this covers the games no app tracks.
 
+![Groundhopping map showing games around Dublin](docs/screenshot.png)
+
 **Live:** https://jaslloyd.github.io/groundhopping/ — or open `index.html` locally. No build step, no server.
 
 - **Games** tab: every game, newest first. Click one to fly to the ground.
