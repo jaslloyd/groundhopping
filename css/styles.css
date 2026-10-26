@@ -1,0 +1,248 @@
+/* Layout: a sidebar (games list / clubs grid) beside a full-height map.
+   On phones the map sits on top and the sidebar scrolls underneath. */
+
+:root {
+  --bg: #f3f5f1;
+  --panel: #ffffff;
+  --ink: #17211b;
+  --muted: #5d6b62;
+  --line: #dbe2dc;
+  --pitch: #1f7a4a;
+  --pin: #c8102e;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Source Sans 3", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101612;
+    --panel: #18211b;
+    --ink: #e6ede8;
+    --muted: #9aa89f;
+    --line: #2a362e;
+    --pitch: #3fb27a;
+    --pin: #ff4d63;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  grid-template-rows: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.45 var(--body);
+}
+
+#map { height: 100%; }
+
+/* ---------- Sidebar header ---------- */
+
+.sidebar {
+  overflow-y: auto;
+  padding: 20px 16px;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+}
+
+.sidebar h1 {
+  margin: 0 0 6px;
+  color: var(--pitch);
+  font: 700 30px/1 var(--display);
+  letter-spacing: .01em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.stats { display: flex; gap: 18px; margin: 0 0 18px; }
+.stats div { font: 700 26px/1 var(--display); }
+.stats span {
+  display: block;
+  color: var(--muted);
+  font: 600 11px/1.4 var(--body);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Tabs ---------- */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tabs button {
+  all: unset;
+  cursor: pointer;
+  margin-bottom: -1px;
+  padding: 8px 12px;
+  border-bottom: 3px solid transparent;
+  color: var(--muted);
+  font: 700 15px/1 var(--display);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.tabs button[aria-selected="true"] { color: var(--pitch); border-color: var(--pitch); }
+.tabs button:focus-visible { outline: 2px solid var(--pitch); outline-offset: 2px; }
+
+/* ---------- Games tab ---------- */
+
+.month {
+  margin: 16px 0 6px;
+  color: var(--muted);
+  font: 600 12px/1 var(--body);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.game {
+  all: unset;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.game:hover,
+.game:focus-visible {
+  background: color-mix(in srgb, var(--pitch) 12%, transparent);
+  outline: none;
+}
+
+.game-date {
+  color: var(--muted);
+  font: 600 13px/1.3 var(--display);
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+}
+
+.game-title { font-weight: 600; }
+.game-ground { color: var(--muted); font-size: 13px; }
+
+/* ---------- Clubs tab ---------- */
+
+.club-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 10px;
+}
+
+.club {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.club:hover,
+.club:focus-visible,
+.club.selected {
+  background: color-mix(in srgb, var(--pitch) 12%, transparent);
+  outline: none;
+}
+
+.club img,
+.badge { width: 56px; height: 56px; object-fit: contain; }
+
+/* Placeholder for clubs without a crest: initials on a colour picked from the name */
+.badge {
+  display: grid;
+  place-items: center;
+  border: 2px dashed color-mix(in srgb, var(--ink) 25%, transparent);
+  border-radius: 50%;
+  background: var(--badge-colour);
+  color: #fff;
+  font: 700 20px/1 var(--display);
+}
+
+.club-name { font: 600 13px/1.2 var(--body); }
+.club-count {
+  color: var(--muted);
+  font: 700 12px/1 var(--display);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* Expanded list of a club's games, inserted after the selected club's row */
+.club-games {
+  grid-column: 1 / -1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--bg);
+  font-size: 13px;
+}
+
+.club-games ul { margin: 4px 0 0; padding-left: 16px; }
+.club-games li { cursor: pointer; }
+.club-games li:hover { color: var(--pitch); }
+
+.hint { margin: 12px 0 0; color: var(--muted); font-size: 12px; }
+
+/* ---------- Map pins, popups and the "show all" control ---------- */
+
+.pin {
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--pin);
+  color: #fff;
+  font: 700 13px/1 var(--display);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+}
+
+.pin.highlighted { background: var(--pitch); }
+
+.leaflet-popup-content { font: 14px/1.4 var(--body); }
+.leaflet-popup-content b {
+  color: #1f7a4a;
+  font: 700 17px/1.2 var(--display);
+  text-transform: uppercase;
+}
+.leaflet-popup-content ul { margin: 6px 0 0; padding-left: 16px; }
+
+.show-all {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--ink);
+  font: 700 14px/1 var(--display);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .35);
+}
+
+.show-all b { color: var(--pitch); }
+
+/* ---------- Phones ---------- */
+
+@media (max-width: 760px) {
+  body { grid-template-columns: 1fr; grid-template-rows: 55vh auto; height: auto; }
+  #map { order: -1; height: 55vh; }
+  .sidebar { overflow: visible; border-right: 0; }
+}
