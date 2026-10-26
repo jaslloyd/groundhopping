@@ -45,7 +45,8 @@ const GROUNDS = [
       {
         "title": "St Patrick's CY vs Sacred Heart",
         "date": "2026-03-25",
-        "caption": "St Patrick's CY vs Sacred Heart – Ringsend Park, 25 Mar 2026.",
+        "score": "2–3",
+        "caption": "St Patrick's CY 2–3 Sacred Heart – Ringsend Park, 25 Mar 2026.",
         "keywords": [
           "Ringsend Park",
           "Sacred Heart FC",
@@ -89,7 +90,8 @@ const GROUNDS = [
       {
         "title": "Usher Celtic vs Killester",
         "date": "2026-04-02",
-        "caption": "Usher Celtic vs Killester – Grangegorman, 2 Apr 2026.",
+        "score": "2–1",
+        "caption": "Usher Celtic 2–1 Killester – Grangegorman, 2 Apr 2026.",
         "keywords": [
           "Grangegorman",
           "Killester",
@@ -106,7 +108,8 @@ const GROUNDS = [
       {
         "title": "St Francis FC vs Kilnamanagh AFC",
         "date": "2026-04-08",
-        "caption": "St Francis FC vs Kilnamanagh AFC – Kilbride, Co. Dublin, 8 Apr 2026.",
+        "score": "1–3",
+        "caption": "St Francis FC 1–3 Kilnamanagh AFC – Kilbride, Co. Dublin, 8 Apr 2026.",
         "keywords": [
           "Kilnamanagh AFC",
           "St Francis FC"
@@ -122,7 +125,8 @@ const GROUNDS = [
       {
         "title": "Collinstown FC vs Blackrock College AFC",
         "date": "2026-04-12",
-        "caption": "Collinstown FC vs Blackrock College AFC – Clondalkin, 12 Apr 2026.",
+        "score": "1–4",
+        "caption": "Collinstown FC 1–4 Blackrock College AFC – Clondalkin, 12 Apr 2026.",
         "keywords": [
           "Blackrock College AFC",
           "Collinstown FC"
@@ -131,7 +135,8 @@ const GROUNDS = [
       {
         "title": "Ballyfermot United vs Dublin University FC",
         "date": "2026-05-06",
-        "caption": "Ballyfermot United vs Dublin University FC – Clondalkin, 6 May 2026.",
+        "score": "5–0",
+        "caption": "Ballyfermot United 5–0 Dublin University FC – Clondalkin, 6 May 2026.",
         "keywords": [
           "Ballyfermot United",
           "Dublin University FC"
@@ -156,7 +161,8 @@ const GROUNDS = [
       {
         "title": "Glenville FC vs East Wall Bessborough",
         "date": "2026-10-25",
-        "caption": "Glenville FC vs East Wall Bessborough – Palmerstown Community School, 25 Oct 2026.",
+        "score": "2–2",
+        "caption": "Glenville FC 2–2 East Wall Bessborough – Palmerstown Community School, 25 Oct 2026.",
         "keywords": [
           "East Wall Bessborough",
           "Glenville FC"
@@ -170,9 +176,10 @@ const GROUNDS = [
     "lon": -6.30765,
     "games": [
       {
-        "title": "Glenville FC vs Dublin University FC",
+        "title": "Dublin University FC vs Glenville FC",
         "date": "2026-04-26",
-        "caption": "Glenville FC vs Dublin University FC – Crumlin, 26 Apr 2026.",
+        "score": "0–5",
+        "caption": "Dublin University FC 0–5 Glenville FC – Crumlin, 26 Apr 2026.",
         "keywords": [
           "Dublin University FC",
           "Glenville FC"
@@ -181,7 +188,8 @@ const GROUNDS = [
       {
         "title": "Dublin University FC vs Collinstown FC",
         "date": "2026-09-09",
-        "caption": "Dublin University FC vs Collinstown FC – Crumlin, 9 Sep 2026.",
+        "score": "3–2",
+        "caption": "Dublin University FC 3–2 Collinstown FC – Crumlin, 9 Sep 2026.",
         "keywords": [
           "Collinstown FC",
           "Dublin University FC"
@@ -197,7 +205,8 @@ const GROUNDS = [
       {
         "title": "Dublin Bus FC vs Collinstown FC",
         "date": "2026-05-17",
-        "caption": "Dublin Bus FC vs Collinstown FC – Inchicore, 17 May 2026.",
+        "score": "1–0",
+        "caption": "Dublin Bus FC 1–0 Collinstown FC – Inchicore, 17 May 2026.",
         "keywords": [
           "Collinstown FC",
           "Dublin Bus FC"
@@ -216,7 +225,8 @@ const GROUNDS = [
       {
         "title": "Dublin Bus FC vs Blackrock College AFC",
         "date": "2026-10-24",
-        "caption": "Dublin Bus FC vs Blackrock College AFC – Inchicore, 24 Oct 2026.",
+        "score": "1–4",
+        "caption": "Dublin Bus FC 1–4 Blackrock College AFC – Inchicore, 24 Oct 2026.",
         "keywords": [
           "Blackrock College AFC",
           "Dublin Bus FC"
@@ -232,7 +242,8 @@ const GROUNDS = [
       {
         "title": "Blackrock College AFC vs Glenville FC",
         "date": "2026-05-20",
-        "caption": "Blackrock College AFC vs Glenville FC – Blackrock, 20 May 2026.",
+        "score": "0–0",
+        "caption": "Blackrock College AFC 0–0 Glenville FC – Blackrock, 20 May 2026.",
         "keywords": [
           "Blackrock College AFC",
           "Glenville FC"
@@ -248,7 +259,8 @@ const GROUNDS = [
       {
         "title": "Sacred Heart vs St Patrick's CY",
         "date": "2026-06-02",
-        "caption": "Sacred Heart vs St Patrick's CY – Sacred Heart FC, Kiltipper, Tallaght, 2 Jun 2026.",
+        "score": "4–3",
+        "caption": "Sacred Heart 4–3 St Patrick's CY – Sacred Heart FC, Kiltipper, Tallaght, 2 Jun 2026.",
         "keywords": [
           "Sacred Heart FC",
           "St Patrick's CY"
@@ -274,7 +286,8 @@ const GROUNDS = [
       {
         "title": "Tolka Rovers vs Finglas United",
         "date": "2026-09-10",
-        "caption": "Tolka Rovers vs Finglas United – Glasnevin, 10 Sep 2026.",
+        "score": "1–5",
+        "caption": "Tolka Rovers 1–5 Finglas United – Glasnevin, 10 Sep 2026.",
         "keywords": [
           "Finglas United",
           "Tolka Rovers"
@@ -290,7 +303,8 @@ const GROUNDS = [
       {
         "title": "Malahide United vs Finglas United",
         "date": "2026-06-07",
-        "caption": "Malahide United vs Finglas United – Malahide, 7 Jun 2026. Huge crowd as Malahide could win the league – and they did!",
+        "score": "4–1",
+        "caption": "Malahide United 4–1 Finglas United – Malahide, 7 Jun 2026. Huge crowd as Malahide could win the league – and they did!",
         "keywords": [
           "Finglas United",
           "League decider",
@@ -300,7 +314,8 @@ const GROUNDS = [
       {
         "title": "Malahide United vs UCD",
         "date": "2026-10-15",
-        "caption": "Malahide United vs UCD – Malahide, 15 Oct 2026.",
+        "score": "4–2",
+        "caption": "Malahide United 4–2 UCD – Malahide, 15 Oct 2026.",
         "keywords": [
           "Malahide United",
           "UCD"
@@ -351,7 +366,8 @@ const GROUNDS = [
       {
         "title": "Newbridge Town FC vs Glenville FC",
         "date": "2026-09-04",
-        "caption": "Newbridge Town FC vs Glenville FC – Newbridge, Co. Kildare, 4 Sep 2026.",
+        "score": "2–3",
+        "caption": "Newbridge Town FC 2–3 Glenville FC – Newbridge, Co. Kildare, 4 Sep 2026.",
         "keywords": [
           "Glenville FC",
           "Newbridge Town FC"
@@ -367,7 +383,8 @@ const GROUNDS = [
       {
         "title": "Greenhills Greenpark FC vs Lusk United AFC",
         "date": "2026-09-06",
-        "caption": "Greenhills Greenpark FC vs Lusk United AFC – Greenhills Park, 6 Sep 2026.",
+        "score": "3–3",
+        "caption": "Greenhills Greenpark FC 3–3 Lusk United AFC – Greenhills Park, 6 Sep 2026.",
         "keywords": [
           "Greenhills Greenpark FC",
           "Greenhills Park",
@@ -377,7 +394,8 @@ const GROUNDS = [
       {
         "title": "Greenhills Greenpark FC vs Eagles FC",
         "date": "2026-09-27",
-        "caption": "Greenhills Greenpark FC vs Eagles FC – Greenhills Park, 27 Sep 2026.",
+        "score": "2–1",
+        "caption": "Greenhills Greenpark FC 2–1 Eagles FC – Greenhills Park, 27 Sep 2026.",
         "keywords": [
           "Eagles FC",
           "Greenhills Greenpark FC",
@@ -387,7 +405,8 @@ const GROUNDS = [
       {
         "title": "Greenhills Greenpark FC vs Mountview",
         "date": "2026-10-18",
-        "caption": "Greenhills Greenpark FC vs Mountview – Greenhills Park, 18 Oct 2026.",
+        "score": "0–1",
+        "caption": "Greenhills Greenpark FC 0–1 Mountview – Greenhills Park, 18 Oct 2026.",
         "keywords": [
           "Greenhills Greenpark FC",
           "Greenhills Park",
@@ -419,7 +438,8 @@ const GROUNDS = [
       {
         "title": "Hartstown Huntstown vs UCD",
         "date": "2026-10-01",
-        "caption": "Hartstown Huntstown vs UCD – Hartstown Park, Blanchardstown, 1 Oct 2026.",
+        "score": "3–2",
+        "caption": "Hartstown Huntstown 3–2 UCD – Hartstown Park, Blanchardstown, 1 Oct 2026.",
         "keywords": [
           "Hartstown Huntstown",
           "UCD"
@@ -435,7 +455,8 @@ const GROUNDS = [
       {
         "title": "Castleknock Celtic vs St Paul's Artane",
         "date": "2026-10-03",
-        "caption": "Castleknock Celtic vs St Paul's Artane – Porterstown Park, Castleknock, 3 Oct 2026.",
+        "score": "2–2",
+        "caption": "Castleknock Celtic 2–2 St Paul's Artane – Porterstown Park, Castleknock, 3 Oct 2026.",
         "keywords": [
           "Castleknock Celtic",
           "St Paul's Artane"
@@ -451,7 +472,8 @@ const GROUNDS = [
       {
         "title": "Stella Maris vs Monread FC",
         "date": "2026-10-07",
-        "caption": "Stella Maris vs Monread FC – Stella Maris, Drumcondra, 7 Oct 2026.",
+        "score": "0–0",
+        "caption": "Stella Maris 0–0 Monread FC – Stella Maris, Drumcondra, 7 Oct 2026.",
         "keywords": [
           "Monread FC",
           "Stella Maris FC"
@@ -467,7 +489,8 @@ const GROUNDS = [
       {
         "title": "Home Farm vs Killester",
         "date": "2026-10-08",
-        "caption": "Home Farm vs Killester – Home Farm FC, Whitehall, 8 Oct 2026.",
+        "score": "1–7",
+        "caption": "Home Farm 1–7 Killester – Home Farm FC, Whitehall, 8 Oct 2026.",
         "keywords": [
           "Home Farm FC",
           "Killester"
@@ -483,7 +506,8 @@ const GROUNDS = [
       {
         "title": "Belgard Athletic vs Kinsealy United",
         "date": "2026-10-24",
-        "caption": "Belgard Athletic vs Kinsealy United – Ballymount Park, Clondalkin, 24 Oct 2026.",
+        "score": "8–3",
+        "caption": "Belgard Athletic 8–3 Kinsealy United – Ballymount Park, Clondalkin, 24 Oct 2026.",
         "keywords": [
           "Belgard Athletic",
           "Kinsealy United"
