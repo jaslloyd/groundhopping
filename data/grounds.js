@@ -54,13 +54,14 @@ const GROUNDS = [
         ]
       },
       {
-        "title": "St Patrick's CY vs Bluebell United",
+        "title": "Liffey Wanderers vs Bluebell United",
         "date": "2026-06-03",
-        "caption": "St Patrick's CY vs Bluebell United – Ringsend Park, 3 Jun 2026.",
+        "score": "2–2",
+        "caption": "Liffey Wanderers 2–2 Bluebell United – Ringsend Park, 3 Jun 2026.",
         "keywords": [
           "Bluebell United",
-          "Ringsend Park",
-          "St Patrick's CY"
+          "Liffey Wanderers",
+          "Ringsend Park"
         ]
       }
     ]
@@ -150,12 +151,13 @@ const GROUNDS = [
     "lon": -6.37557,
     "games": [
       {
-        "title": "Glenville FC vs Leixlip United",
+        "title": "Glenville FC vs Templeogue United FC",
         "date": "2026-04-15",
-        "caption": "Glenville FC vs Leixlip United – Palmerstown Community School, 15 Apr 2026.",
+        "score": "1–2",
+        "caption": "Glenville FC 1–2 Templeogue United FC – Palmerstown Community School, 15 Apr 2026.",
         "keywords": [
           "Glenville FC",
-          "Leixlip United"
+          "Templeogue United FC"
         ]
       },
       {
