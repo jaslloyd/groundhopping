@@ -204,11 +204,13 @@ const GROUNDS = [
         ]
       },
       {
-        "title": "Dublin Bus vs [TBC]",
+        "title": "Dublin Bus FC vs Kilmore Celtic",
         "date": "2026-06-09",
-        "caption": "Dublin Bus (in blue) vs [TBC] – Inchicore, 9 Jun 2026.",
+        "score": "0–1",
+        "caption": "Dublin Bus FC 0–1 Kilmore Celtic – Inchicore, 9 Jun 2026.",
         "keywords": [
-          "Dublin Bus FC"
+          "Dublin Bus FC",
+          "Kilmore Celtic"
         ]
       },
       {
@@ -260,10 +262,12 @@ const GROUNDS = [
     "lon": -6.27265,
     "games": [
       {
-        "title": "Tolka Rovers vs [TBC]",
+        "title": "Tolka Rovers vs Inchicore Athletic FC",
         "date": "2026-06-05",
-        "caption": "Tolka Rovers vs [TBC] – Glasnevin, 5 Jun 2026.",
+        "score": "1–4",
+        "caption": "Tolka Rovers 1–4 Inchicore Athletic FC – Glasnevin, 5 Jun 2026.",
         "keywords": [
+          "Inchicore Athletic FC",
           "Tolka Rovers"
         ]
       },
@@ -310,11 +314,13 @@ const GROUNDS = [
     "lon": -6.31671,
     "games": [
       {
-        "title": "Finglas FC vs [TBC]",
+        "title": "Finglas United vs Bangor Celtic",
         "date": "2026-06-10",
-        "caption": "Finglas FC vs [TBC] – Finglas, 10 Jun 2026.",
+        "score": "5–3",
+        "caption": "Finglas United 5–3 Bangor Celtic – Finglas, 10 Jun 2026.",
         "keywords": [
-          "Finglas FC"
+          "Bangor Celtic",
+          "Finglas United"
         ]
       }
     ]
