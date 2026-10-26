@@ -1,6 +1,6 @@
 # Groundhopping
 
-A map of the football games I go to that no app tracks for me: Leinster Senior League sides, junior clubs, pre-season friendlies, the odd charity match. League of Ireland games already live in [Momento](https://momento.app), so this is everything below that.
+A map of the football games I go to that no app tracks for me: Leinster Senior League sides, pre-season friendlies, the odd charity match. League of Ireland games already live in [Momento](https://momento.app), so this is everything below that.
 
 Open `index.html` in a browser. No build step, no server.
 
