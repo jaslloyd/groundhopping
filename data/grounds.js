@@ -1,5 +1,6 @@
 // Every ground I've been to, with the games I saw there.
-// Each game: title ("Home vs Away"), date (YYYY-MM-DD), caption and keywords (the clubs, plus tags).
+// Each game: title ("Home vs Away"), date (YYYY-MM-DD), optional score ("2–2", home first),
+// caption and keywords (the clubs, plus tags).
 const GROUNDS = [
   {
     "name": "pre-season friendly, TU Dublin Blanchardstown",
@@ -480,6 +481,23 @@ const GROUNDS = [
         "keywords": [
           "Belgard Athletic",
           "Kinsealy United"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Oatlands College, Stillorgan",
+    "lat": 53.29228,
+    "lon": -6.20359,
+    "games": [
+      {
+        "title": "Mount Merrion FC vs Lusk United AFC",
+        "date": "2026-10-26",
+        "score": "2–2",
+        "caption": "Mount Merrion FC 2–2 Lusk United AFC – Oatlands College, Stillorgan, 26 Oct 2026.",
+        "keywords": [
+          "Lusk United AFC",
+          "Mount Merrion FC"
         ]
       }
     ]

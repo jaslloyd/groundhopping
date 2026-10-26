@@ -13,6 +13,9 @@ const shortDate = (iso) => parseDate(iso).toLocaleDateString("en-IE", { day: "nu
 const monthLabel = (iso) => parseDate(iso).toLocaleDateString("en-IE", { month: "long", year: "numeric" });
 const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 
+// "Home vs Away", or "Home 2–2 Away" when the score is known.
+const matchLabel = (game) => (game.score ? game.title.replace(" vs ", ` ${game.score} `) : game.title);
+
 const clubsIn = (game) => game.keywords.filter((k) => !NON_CLUB_KEYWORDS.test(k));
 
 // "St Patrick's CY" -> "SP", "Glenville FC" -> "G"
@@ -73,7 +76,7 @@ const pinIcon = (count, highlighted = false) => {
 
 const popupHtml = (ground, gamesShown) =>
   `<b>${ground.name}</b><ul>${gamesShown
-    .map((game) => `<li>${shortDate(game.date)} ${game.date.slice(0, 4)} · ${game.title}</li>`)
+    .map((game) => `<li>${shortDate(game.date)} ${game.date.slice(0, 4)} · ${matchLabel(game)}</li>`)
     .join("")}</ul>`;
 
 // One marker per ground, in the same order as GROUNDS.
@@ -174,7 +177,7 @@ function renderGames() {
       <button class="game" data-ground="${game.groundIndex}">
         <span class="game-date">${shortDate(game.date)}</span>
         <span>
-          <span class="game-title">${game.title}</span><br>
+          <span class="game-title">${matchLabel(game)}</span><br>
           <span class="game-ground">${game.groundName}</span>
         </span>
       </button>`;
@@ -235,7 +238,7 @@ function showClubGames(card) {
   const panel = document.createElement("div");
   panel.className = "club-games";
   panel.innerHTML = `<b>${club}</b><ul>${gamesByClub[club]
-    .map((game) => `<li data-ground="${game.groundIndex}">${shortDate(game.date)} ${game.date.slice(0, 4)} · ${game.title} <span class="game-ground">(${game.groundName})</span></li>`)
+    .map((game) => `<li data-ground="${game.groundIndex}">${shortDate(game.date)} ${game.date.slice(0, 4)} · ${matchLabel(game)} <span class="game-ground">(${game.groundName})</span></li>`)
     .join("")}</ul>`;
   items[rowEnd].after(panel);
 }
