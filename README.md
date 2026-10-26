@@ -8,6 +8,7 @@ A map of the Leinster Senior League football games I go to, plus the odd pre-sea
 
 - **Games** tab: every game, newest first. Click one to fly to the ground.
 - **Clubs** tab: every club I've seen, with how many times. Click a club to filter the map to just its grounds and games.
+- **Share a club:** picking a club puts it in the address bar, e.g. [`?club=Glenville FC`](https://jaslloyd.github.io/groundhopping/?club=Glenville%20FC). Opening that link goes straight to the club's filtered map.
 
 ## How the data gets made
 

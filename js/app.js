@@ -96,6 +96,14 @@ const flyToGround = (groundIndex) => {
   scrollToMapOnPhones();
 };
 
+// Keep the selected club in the address bar (?club=Glenville%20FC) so a filtered view can be shared.
+function setClubInUrl(club) {
+  const url = new URL(location.href);
+  if (club) url.searchParams.set("club", club);
+  else url.searchParams.delete("club");
+  history.replaceState(null, "", url);
+}
+
 // "Glenville FC · 5 games  ✕ Show all" button, shown while the map is filtered.
 const showAllControl = L.control({ position: "topright" });
 showAllControl.onAdd = () => {
@@ -108,6 +116,7 @@ showAllControl.onAdd = () => {
 // Show only the grounds where this club played, with counts and popups for that club.
 function filterMapToClub(club) {
   map.closePopup();
+  setClubInUrl(club);
   const visible = [];
 
   GROUNDS.forEach((ground, i) => {
@@ -139,6 +148,7 @@ function filterMapToClub(club) {
 // Put every ground back with its full game count.
 function showAllGrounds() {
   map.closePopup();
+  setClubInUrl(null);
   showAllControl.remove();
   GROUNDS.forEach((ground, i) => {
     markers[i].setIcon(pinIcon(ground.games.length));
@@ -263,24 +273,41 @@ clubsPanel.addEventListener("click", (event) => {
     return;
   }
 
+  selectClub(card);
+});
+
+function selectClub(card) {
   card.classList.add("selected");
   filterMapToClub(card.dataset.club);
   showClubGames(card);
-});
+}
 
 // ---------- Tabs ----------
+
+function switchTab(name) {
+  document.querySelectorAll(".tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === name));
+  gamesPanel.hidden = name !== "games";
+  clubsPanel.hidden = name !== "clubs";
+}
 
 document.querySelector(".tabs").addEventListener("click", (event) => {
   const tab = event.target.closest("button");
   if (!tab) return;
-
-  document.querySelectorAll(".tabs button").forEach((b) => b.setAttribute("aria-selected", b === tab));
-  gamesPanel.hidden = tab.dataset.tab !== "games";
-  clubsPanel.hidden = tab.dataset.tab !== "clubs";
+  switchTab(tab.dataset.tab);
 
   // Leaving the Clubs tab drops any club filter.
   if (tab.dataset.tab === "games" && clubGrid().querySelector(".club.selected")) clearClubSelection();
 });
 
+// ---------- Start ----------
+
 renderGames();
 renderClubs();
+
+// Opened from a shared link? Jump straight to that club (name match ignores case).
+const sharedClub = new URLSearchParams(location.search).get("club")?.toLowerCase();
+const sharedCard = sharedClub && [...clubsPanel.querySelectorAll(".club")].find((c) => c.dataset.club.toLowerCase() === sharedClub);
+if (sharedCard) {
+  switchTab("clubs");
+  selectClub(sharedCard);
+}
