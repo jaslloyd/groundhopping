@@ -1,6 +1,6 @@
 # Groundhopping
 
-A map of the Leinster Senior League football games I go to, plus the odd pre-season friendly and charity match. League of Ireland games already live in [Momento](https://momento.app), so this covers the games no app tracks.
+A map of the Leinster Senior League football games I go to, plus the odd pre-season friendly and charity match. League of Ireland games already live in [Momento](https://www.acmomento.com/), so this covers the games no app tracks.
 
 ![Groundhopping map showing games around Dublin](docs/screenshot.png)
 
