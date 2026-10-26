@@ -22,6 +22,7 @@ const CRESTS = {
   "Inchicore Athletic FC": "crests/inchicore-athletic-fc.png",
   "Killester": "crests/killester.png",
   "Kilmore Celtic": "crests/kilmore-celtic.png",
+  "Kilnamanagh AFC": "crests/kilnamanagh-afc.png",
   "Kinsealy United": "crests/kinsealy-united.png",
   "Leixlip United": "crests/leixlip-united.png",
   "Lusk United AFC": "crests/lusk-united-afc.png",
