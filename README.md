@@ -2,7 +2,7 @@
 
 A map of the football games I go to that no app tracks for me: Leinster Senior League sides, pre-season friendlies, the odd charity match. League of Ireland games already live in [Momento](https://momento.app), so this is everything below that.
 
-Open `index.html` in a browser. No build step, no server.
+**Live:** https://jaslloyd.github.io/groundhopping/ — or open `index.html` locally. No build step, no server.
 
 - **Games** tab: every game, newest first. Click one to fly to the ground.
 - **Clubs** tab: every club I've seen, with how many times. Click a club to filter the map to just its grounds and games.
