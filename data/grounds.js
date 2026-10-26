@@ -104,11 +104,11 @@ const GROUNDS = [
     "lon": -6.43077,
     "games": [
       {
-        "title": "St Francis vs Kilmanagh",
+        "title": "St Francis FC vs Kilnamanagh AFC",
         "date": "2026-04-08",
-        "caption": "St Francis FC vs Kilmanagh FC – Kilbride, Co. Dublin, 8 Apr 2026.",
+        "caption": "St Francis FC vs Kilnamanagh AFC – Kilbride, Co. Dublin, 8 Apr 2026.",
         "keywords": [
-          "Kilmanagh FC",
+          "Kilnamanagh AFC",
           "St Francis FC"
         ]
       }
