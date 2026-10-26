@@ -2,17 +2,21 @@
 // Clubs missing from here get an initials badge instead.
 const CRESTS = {
   "Arthur Griffith Park FC": "crests/arthur-griffith-park-fc.png",
-  "Ballyfermot": "crests/ballyfermot.png",
+  "Ballyfermot United": "crests/ballyfermot-united.png",
+  "Bangor Celtic": "crests/bangor-celtic.png",
   "Belgard Athletic": "crests/belgard-athletic.png",
+  "Blackrock College AFC": "crests/blackrock-college-afc.png",
   "Bluebell United": "crests/bluebell-united.png",
   "Castleknock Celtic": "crests/castleknock-celtic.png",
   "Collinstown FC": "crests/collinstown-fc.png",
   "Drogheda United": "crests/drogheda-united.png",
   "Dublin Bus FC": "crests/dublin-bus-fc.png",
+  "Dublin University FC": "crests/dublin-university-fc.png",
   "Eagles FC": "crests/eagles-fc.png",
   "East Wall Bessborough": "crests/east-wall-bessborough.png",
   "Finglas United": "crests/finglas-united.png",
   "Glenville FC": "crests/glenville-fc.png",
+  "Greenhills Greenpark FC": "crests/greenhills-greenpark-fc.png",
   "Hartstown Huntstown": "crests/hartstown-huntstown.png",
   "Home Farm FC": "crests/home-farm-fc.png",
   "Inchicore Athletic FC": "crests/inchicore-athletic-fc.png",
@@ -32,7 +36,6 @@ const CRESTS = {
   "Stella Maris FC": "crests/stella-maris-fc.png",
   "Tolka Rovers": "crests/tolka-rovers.png",
   "Treaty United": "crests/treaty-united.png",
-  "Trinity Donaghmede": "crests/trinity-donaghmede.png",
   "UCD": "crests/ucd.png",
   "Usher Celtic": "crests/usher-celtic.png"
 };

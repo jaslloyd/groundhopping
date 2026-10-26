@@ -120,21 +120,21 @@ const GROUNDS = [
     "lon": -6.38851,
     "games": [
       {
-        "title": "Collinstown FC vs Blackrock FC",
+        "title": "Collinstown FC vs Blackrock College AFC",
         "date": "2026-04-12",
-        "caption": "Collinstown FC vs Blackrock FC – Clondalkin, 12 Apr 2026.",
+        "caption": "Collinstown FC vs Blackrock College AFC – Clondalkin, 12 Apr 2026.",
         "keywords": [
-          "Blackrock FC",
+          "Blackrock College AFC",
           "Collinstown FC"
         ]
       },
       {
-        "title": "Ballyfermot vs Trinity Donaghmede",
+        "title": "Ballyfermot United vs Dublin University FC",
         "date": "2026-05-06",
-        "caption": "Ballyfermot vs Trinity Donaghmede – Clondalkin, 6 May 2026.",
+        "caption": "Ballyfermot United vs Dublin University FC – Clondalkin, 6 May 2026.",
         "keywords": [
-          "Ballyfermot",
-          "Trinity Donaghmede"
+          "Ballyfermot United",
+          "Dublin University FC"
         ]
       }
     ]
@@ -170,21 +170,21 @@ const GROUNDS = [
     "lon": -6.30765,
     "games": [
       {
-        "title": "Glenville FC vs Trinity Donaghmede",
+        "title": "Glenville FC vs Dublin University FC",
         "date": "2026-04-26",
-        "caption": "Glenville FC vs Trinity Donaghmede – Crumlin, 26 Apr 2026.",
+        "caption": "Glenville FC vs Dublin University FC – Crumlin, 26 Apr 2026.",
         "keywords": [
-          "Glenville FC",
-          "Trinity Donaghmede"
+          "Dublin University FC",
+          "Glenville FC"
         ]
       },
       {
-        "title": "Trinity Donaghmede vs Collinstown FC",
+        "title": "Dublin University FC vs Collinstown FC",
         "date": "2026-09-09",
-        "caption": "Trinity Donaghmede vs Collinstown FC – Crumlin, 9 Sep 2026.",
+        "caption": "Dublin University FC vs Collinstown FC – Crumlin, 9 Sep 2026.",
         "keywords": [
           "Collinstown FC",
-          "Trinity Donaghmede"
+          "Dublin University FC"
         ]
       }
     ]
@@ -195,9 +195,9 @@ const GROUNDS = [
     "lon": -6.32496,
     "games": [
       {
-        "title": "Dublin Bus vs Collinstown FC",
+        "title": "Dublin Bus FC vs Collinstown FC",
         "date": "2026-05-17",
-        "caption": "Dublin Bus vs Collinstown FC – Inchicore, 17 May 2026.",
+        "caption": "Dublin Bus FC vs Collinstown FC – Inchicore, 17 May 2026.",
         "keywords": [
           "Collinstown FC",
           "Dublin Bus FC"
@@ -214,11 +214,11 @@ const GROUNDS = [
         ]
       },
       {
-        "title": "Dublin Bus vs Blackrock FC",
+        "title": "Dublin Bus FC vs Blackrock College AFC",
         "date": "2026-10-24",
-        "caption": "Dublin Bus vs Blackrock FC – Inchicore, 24 Oct 2026.",
+        "caption": "Dublin Bus FC vs Blackrock College AFC – Inchicore, 24 Oct 2026.",
         "keywords": [
-          "Blackrock FC",
+          "Blackrock College AFC",
           "Dublin Bus FC"
         ]
       }
@@ -230,11 +230,11 @@ const GROUNDS = [
     "lon": -6.1622,
     "games": [
       {
-        "title": "Blackrock FC vs Glenville FC",
+        "title": "Blackrock College AFC vs Glenville FC",
         "date": "2026-05-20",
-        "caption": "Blackrock FC vs Glenville FC – Blackrock, 20 May 2026.",
+        "caption": "Blackrock College AFC vs Glenville FC – Blackrock, 20 May 2026.",
         "keywords": [
-          "Blackrock FC",
+          "Blackrock College AFC",
           "Glenville FC"
         ]
       }
@@ -365,31 +365,31 @@ const GROUNDS = [
     "lon": -6.33361,
     "games": [
       {
-        "title": "Greenhills AFC vs Lusk United",
+        "title": "Greenhills Greenpark FC vs Lusk United AFC",
         "date": "2026-09-06",
-        "caption": "Greenhills AFC vs Lusk United AFC – Greenhills Park, 6 Sep 2026.",
+        "caption": "Greenhills Greenpark FC vs Lusk United AFC – Greenhills Park, 6 Sep 2026.",
         "keywords": [
-          "Greenhills AFC",
+          "Greenhills Greenpark FC",
           "Greenhills Park",
           "Lusk United AFC"
         ]
       },
       {
-        "title": "Greenhills AFC vs Eagles FC",
+        "title": "Greenhills Greenpark FC vs Eagles FC",
         "date": "2026-09-27",
-        "caption": "Greenhills AFC vs Eagles FC – Greenhills Park, 27 Sep 2026.",
+        "caption": "Greenhills Greenpark FC vs Eagles FC – Greenhills Park, 27 Sep 2026.",
         "keywords": [
           "Eagles FC",
-          "Greenhills AFC",
+          "Greenhills Greenpark FC",
           "Greenhills Park"
         ]
       },
       {
-        "title": "Greenhills AFC vs Mountview",
+        "title": "Greenhills Greenpark FC vs Mountview",
         "date": "2026-10-18",
-        "caption": "Greenhills AFC vs Mountview – Greenhills Park, 18 Oct 2026.",
+        "caption": "Greenhills Greenpark FC vs Mountview – Greenhills Park, 18 Oct 2026.",
         "keywords": [
-          "Greenhills AFC",
+          "Greenhills Greenpark FC",
           "Greenhills Park",
           "Mountview"
         ]
