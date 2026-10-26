@@ -35,4 +35,4 @@ The data files are `.js` rather than `.json` so the page still works opened stra
 ## Credits
 
 - Map tiles © [Esri](https://www.esri.com). Map library: [Leaflet](https://leafletjs.com).
-- Club crests belong to their clubs. Most come from their Wikipedia pages; clubs without one get an initials badge.
+- Club crests belong to their clubs. They come from [Final Whistle](https://www.finalwhistle.ie/soccer/), Wikipedia and club pages; clubs without one get an initials badge.
