@@ -223,6 +223,7 @@ body {
   text-transform: uppercase;
 }
 .leaflet-popup-content ul { margin: 6px 0 0; padding-left: 16px; }
+.leaflet-popup-content small { color: #5d6b62; font-size: 12px; }
 
 .show-all {
   cursor: pointer;
