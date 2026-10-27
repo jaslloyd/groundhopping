@@ -366,7 +366,7 @@ const GROUNDS = [
     ]
   },
   {
-    "name": "",
+    "name": "Bluebell United's ground",
     "lat": 53.3208,
     "lon": -6.36444,
     "games": [
