@@ -29,6 +29,7 @@ The photos I take at games are the source of truth. Each one gets a title (`Home
 | `data/grounds.js` | Every ground with the games seen there — add new games here |
 | `data/crests.js` | Club name → crest image |
 | `crests/` | Crest images |
+| `icons/` | Favicon (SVG, with PNG fallbacks for older browsers and iPhone home screens) |
 | `tools/tag.applescript` | Writes title, caption and keywords to a photo |
 
 The data files are `.js` rather than `.json` so the page still works opened straight from disk (browsers block `fetch` on `file://`).
