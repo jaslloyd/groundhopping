@@ -99,12 +99,16 @@ const flyToGround = (groundIndex) => {
   scrollToMapOnPhones();
 };
 
-// Keep the selected club in the address bar (?club=Glenville%20FC) so a filtered view can be shared.
-function setClubInUrl(club) {
+const SITE_TITLE = document.title;
+
+// Keep the selected club in the address bar (?club=Glenville%20FC) so a filtered view can be shared,
+// and in the tab title ("Groundhopping Map - Glenville FC").
+function showClubInUrlAndTitle(club) {
   const url = new URL(location.href);
   if (club) url.searchParams.set("club", club);
   else url.searchParams.delete("club");
   history.replaceState(null, "", url);
+  document.title = club ? `${SITE_TITLE} - ${club}` : SITE_TITLE;
 }
 
 // "Glenville FC · 5 games  ✕ Show all" button, shown while the map is filtered.
@@ -119,7 +123,7 @@ showAllControl.onAdd = () => {
 // Show only the grounds where this club played, with counts and popups for that club.
 function filterMapToClub(club) {
   map.closePopup();
-  setClubInUrl(club);
+  showClubInUrlAndTitle(club);
   const visible = [];
 
   GROUNDS.forEach((ground, i) => {
@@ -151,7 +155,7 @@ function filterMapToClub(club) {
 // Put every ground back with its full game count.
 function showAllGrounds() {
   map.closePopup();
-  setClubInUrl(null);
+  showClubInUrlAndTitle(null);
   showAllControl.remove();
   GROUNDS.forEach((ground, i) => {
     markers[i].setIcon(pinIcon(ground.games.length));
