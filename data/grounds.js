@@ -3,7 +3,7 @@
 // optional competition (league or cup, from Final Whistle), caption and keywords (the clubs, plus tags).
 const GROUNDS = [
   {
-    "name": "pre-season friendly, TU Dublin Blanchardstown",
+    "name": "TU Dublin Blanchardstown",
     "lat": 53.40573,
     "lon": -6.38207,
     "games": [
@@ -22,7 +22,7 @@ const GROUNDS = [
     ]
   },
   {
-    "name": "pre-season friendly, Gordon Park, Tallaght",
+    "name": "Gordon Park, Tallaght",
     "lat": 53.29881,
     "lon": -6.41702,
     "games": [
@@ -71,7 +71,7 @@ const GROUNDS = [
     ]
   },
   {
-    "name": "representative match, Dublin 15",
+    "name": "Dublin 15",
     "lat": 53.38346,
     "lon": -6.33462,
     "games": [
