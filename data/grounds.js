@@ -567,5 +567,23 @@ const GROUNDS = [
         ]
       }
     ]
+  },
+  {
+    "name": "Leixlip Amenities Centre",
+    "lat": 53.37131,
+    "lon": -6.51757,
+    "games": [
+      {
+        "title": "Leixlip United vs East Wall Bessborough",
+        "date": "2026-10-29",
+        "score": "1–6",
+        "competition": "LSL Major 1C Saturday",
+        "caption": "Leixlip United 1–6 East Wall Bessborough – Leixlip Amenities Centre, 29 Oct 2026.",
+        "keywords": [
+          "East Wall Bessborough",
+          "Leixlip United"
+        ]
+      }
+    ]
   }
 ];
