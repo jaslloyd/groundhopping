@@ -182,12 +182,19 @@ document.getElementById("stats").innerHTML = [
 const gamesPanel = document.getElementById("games");
 
 function renderGames() {
+  const monthCounts = {};
+  for (const game of games) {
+    const month = monthLabel(game.date);
+    monthCounts[month] = (monthCounts[month] || 0) + 1;
+  }
+
   let html = "";
   let currentMonth = "";
   for (const game of games) {
     const month = monthLabel(game.date);
     if (month !== currentMonth) {
-      html += `<div class="month">${month}</div>`;
+      const count = monthCounts[month];
+      html += `<div class="month">${month}<span>${count} ${count === 1 ? "game" : "games"}</span></div>`;
       currentMonth = month;
     }
     html += `
