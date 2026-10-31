@@ -3,6 +3,24 @@
 // optional competition (league or cup, from Final Whistle), caption and keywords (the clubs, plus tags).
 const GROUNDS = [
   {
+    "name": "AUL Complex, Clonshaugh",
+    "lat": 53.41978,
+    "lon": -6.2162,
+    "games": [
+      {
+        "title": "St Pats vs Bray",
+        "date": "2023-01-28",
+        "competition": "Pre-season friendly",
+        "caption": "St Pats vs Bray – pre-season friendly, AUL Complex, Clonshaugh, 28 Jan 2023.",
+        "keywords": [
+          "Bray Wanderers",
+          "Pre-season friendly",
+          "St Patrick's Athletic"
+        ]
+      }
+    ]
+  },
+  {
     "name": "TU Dublin Blanchardstown",
     "lat": 53.40573,
     "lon": -6.38207,
