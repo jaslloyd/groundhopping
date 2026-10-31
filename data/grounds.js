@@ -518,6 +518,17 @@ const GROUNDS = [
           "Greenhills Park",
           "Mountview"
         ]
+      },
+      {
+        "title": "Greenhills Greenpark FC vs St John Vianney FC",
+        "date": "2026-10-31",
+        "score": "1–5",
+        "competition": "LSL Division 3C Saturday",
+        "caption": "Greenhills Greenpark FC 1–5 St John Vianney FC – Greenhills Park, 31 Oct 2026.",
+        "keywords": [
+          "Greenhills Greenpark FC",
+          "St John Vianney FC"
+        ]
       }
     ]
   },
