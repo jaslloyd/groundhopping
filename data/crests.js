@@ -21,12 +21,14 @@ const CRESTS = {
   "Hartstown Huntstown": "crests/hartstown-huntstown.png",
   "Home Farm FC": "crests/home-farm-fc.png",
   "Inchicore Athletic FC": "crests/inchicore-athletic-fc.png",
+  "Kilbarrack United": "crests/kilbarrack-united.png",
   "Killester": "crests/killester.png",
   "Kilmore Celtic": "crests/kilmore-celtic.png",
   "Kilnamanagh AFC": "crests/kilnamanagh-afc.png",
   "Kinsealy United": "crests/kinsealy-united.png",
   "Leixlip United": "crests/leixlip-united.png",
   "Liffey Wanderers": "crests/liffey-wanderers.png",
+  "Lucan United FC": "crests/lucan-united-fc.png",
   "Lusk United AFC": "crests/lusk-united-afc.png",
   "Malahide United": "crests/malahide-united.png",
   "Monread FC": "crests/monread-fc.png",
@@ -44,5 +46,6 @@ const CRESTS = {
   "Tolka Rovers": "crests/tolka-rovers.png",
   "Treaty United": "crests/treaty-united.png",
   "UCD": "crests/ucd.png",
-  "Usher Celtic": "crests/usher-celtic.png"
+  "Usher Celtic": "crests/usher-celtic.png",
+  "Wayside Celtic": "crests/wayside-celtic.png"
 };

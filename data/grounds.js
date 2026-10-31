@@ -40,6 +40,35 @@ const GROUNDS = [
     ]
   },
   {
+    "name": "Jackson Park, Kilternan",
+    "lat": 53.2408,
+    "lon": -6.18752,
+    "games": [
+      {
+        "title": "Wayside Celtic vs Bangor Celtic",
+        "date": "2025-10-29",
+        "score": "2–2",
+        "competition": "LSL Senior Sunday",
+        "caption": "Wayside Celtic 2–2 Bangor Celtic – Jackson Park, Kilternan, 29 Oct 2025.",
+        "keywords": [
+          "Bangor Celtic",
+          "Wayside Celtic"
+        ]
+      },
+      {
+        "title": "Wayside Celtic vs Lucan United FC",
+        "date": "2025-11-28",
+        "score": "1–1",
+        "competition": "LSL Senior Sunday",
+        "caption": "Wayside Celtic 1–1 Lucan United FC – Jackson Park, Kilternan, 28 Nov 2025.",
+        "keywords": [
+          "Lucan United FC",
+          "Wayside Celtic"
+        ]
+      }
+    ]
+  },
+  {
     "name": "Gordon Park, Tallaght",
     "lat": 53.29881,
     "lon": -6.41702,
@@ -53,6 +82,24 @@ const GROUNDS = [
           "Pre-season friendly",
           "Shamrock Rovers",
           "Treaty United"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "UCD, Belfield",
+    "lat": 53.31045,
+    "lon": -6.22812,
+    "games": [
+      {
+        "title": "UCD vs Usher Celtic",
+        "date": "2026-03-08",
+        "score": "2–0",
+        "competition": "LSL Senior Sunday",
+        "caption": "UCD 2–0 Usher Celtic – UCD, Belfield, 8 Mar 2026.",
+        "keywords": [
+          "UCD",
+          "Usher Celtic"
         ]
       }
     ]
@@ -330,6 +377,17 @@ const GROUNDS = [
         "caption": "Tolka Rovers 1–5 Finglas United – Glasnevin, 10 Sep 2026.",
         "keywords": [
           "Finglas United",
+          "Tolka Rovers"
+        ]
+      },
+      {
+        "title": "Tolka Rovers vs Kilbarrack United",
+        "date": "2026-09-16",
+        "score": "1–3",
+        "competition": "LSL PTSB Metropolitan Cup",
+        "caption": "Tolka Rovers 1–3 Kilbarrack United – Glasnevin, 16 Sep 2026.",
+        "keywords": [
+          "Kilbarrack United",
           "Tolka Rovers"
         ]
       }
