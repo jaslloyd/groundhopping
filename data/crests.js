@@ -38,6 +38,7 @@ const CRESTS = {
   "Sacred Heart FC": "crests/sacred-heart-fc.png",
   "Shamrock Rovers": "crests/shamrock-rovers.png",
   "St Francis FC": "crests/st-francis-fc.png",
+  "St John Vianney FC": "crests/st-john-vianney-fc.png",
   "St Patrick's Athletic": "crests/st-patricks-athletic.png",
   "St Patrick's CY": "crests/st-patricks-cy.png",
   "St Paul's Artane": "crests/st-pauls-artane.png",
