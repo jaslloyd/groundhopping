@@ -244,6 +244,9 @@ const GROUNDS = [
         "keywords": [
           "East Wall Bessborough",
           "Glenville FC"
+        ],
+        "photos": [
+          "2026-10-25-glenville-fc-east-wall-bessborough-1.jpg"
         ]
       }
     ]
@@ -313,6 +316,9 @@ const GROUNDS = [
         "keywords": [
           "Blackrock College AFC",
           "Dublin Bus FC"
+        ],
+        "photos": [
+          "2026-10-24-dublin-bus-fc-blackrock-college-afc-1.jpg"
         ]
       }
     ]
@@ -528,6 +534,9 @@ const GROUNDS = [
         "keywords": [
           "Greenhills Greenpark FC",
           "St John Vianney FC"
+        ],
+        "photos": [
+          "2026-10-31-greenhills-greenpark-fc-st-john-vianney-fc-1.jpg"
         ]
       }
     ]
@@ -633,6 +642,9 @@ const GROUNDS = [
         "keywords": [
           "Belgard Athletic",
           "Kinsealy United"
+        ],
+        "photos": [
+          "2026-10-24-belgard-athletic-kinsealy-united-1.jpg"
         ]
       }
     ]
@@ -651,6 +663,10 @@ const GROUNDS = [
         "keywords": [
           "Lusk United AFC",
           "Mount Merrion FC"
+        ],
+        "photos": [
+          "2026-10-26-mount-merrion-fc-lusk-united-afc-1.jpg",
+          "2026-10-26-mount-merrion-fc-lusk-united-afc-2.jpg"
         ]
       }
     ]
@@ -669,6 +685,9 @@ const GROUNDS = [
         "keywords": [
           "East Wall Bessborough",
           "Leixlip United"
+        ],
+        "photos": [
+          "2026-10-29-leixlip-united-east-wall-bessborough-1.jpg"
         ]
       }
     ]
