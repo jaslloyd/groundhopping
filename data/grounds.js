@@ -276,6 +276,10 @@ const GROUNDS = [
         "keywords": [
           "Collinstown FC",
           "Dublin University FC"
+        ],
+        "photos": [
+          "2026-09-09-dublin-university-fc-collinstown-fc-1.jpg",
+          "2026-09-09-dublin-university-fc-collinstown-fc-2.jpg"
         ]
       }
     ]
@@ -305,6 +309,9 @@ const GROUNDS = [
         "keywords": [
           "Dublin Bus FC",
           "Kilmore Celtic"
+        ],
+        "photos": [
+          "2026-06-09-dublin-bus-fc-kilmore-celtic-1.jpg"
         ]
       },
       {
@@ -384,6 +391,9 @@ const GROUNDS = [
         "keywords": [
           "Finglas United",
           "Tolka Rovers"
+        ],
+        "photos": [
+          "2026-09-10-tolka-rovers-finglas-united-1.jpg"
         ]
       },
       {
@@ -395,6 +405,9 @@ const GROUNDS = [
         "keywords": [
           "Kilbarrack United",
           "Tolka Rovers"
+        ],
+        "photos": [
+          "2026-09-16-tolka-rovers-kilbarrack-united-1.jpg"
         ]
       }
     ]
@@ -425,6 +438,9 @@ const GROUNDS = [
         "keywords": [
           "Malahide United",
           "UCD"
+        ],
+        "photos": [
+          "2026-10-15-malahide-united-ucd-1.jpg"
         ]
       }
     ]
@@ -443,6 +459,9 @@ const GROUNDS = [
         "keywords": [
           "Bangor Celtic",
           "Finglas United"
+        ],
+        "photos": [
+          "2026-06-10-finglas-united-bangor-celtic-1.jpg"
         ]
       }
     ]
@@ -480,6 +499,10 @@ const GROUNDS = [
         "keywords": [
           "Glenville FC",
           "Newbridge Town FC"
+        ],
+        "photos": [
+          "2026-09-04-newbridge-town-fc-glenville-fc-1.jpg",
+          "2026-09-04-newbridge-town-fc-glenville-fc-2.jpg"
         ]
       }
     ]
@@ -499,6 +522,9 @@ const GROUNDS = [
           "Greenhills Greenpark FC",
           "Greenhills Park",
           "Lusk United AFC"
+        ],
+        "photos": [
+          "2026-09-06-greenhills-greenpark-fc-lusk-united-afc-1.jpg"
         ]
       },
       {
@@ -511,6 +537,9 @@ const GROUNDS = [
           "Eagles FC",
           "Greenhills Greenpark FC",
           "Greenhills Park"
+        ],
+        "photos": [
+          "2026-09-27-greenhills-greenpark-fc-eagles-fc-1.jpg"
         ]
       },
       {
@@ -523,6 +552,9 @@ const GROUNDS = [
           "Greenhills Greenpark FC",
           "Greenhills Park",
           "Mountview"
+        ],
+        "photos": [
+          "2026-10-18-greenhills-greenpark-fc-mountview-1.jpg"
         ]
       },
       {
@@ -552,6 +584,10 @@ const GROUNDS = [
         "caption": "Arthur Griffith Park FC vs ? – Lucan, 26 Sep 2026.",
         "keywords": [
           "Arthur Griffith Park FC"
+        ],
+        "photos": [
+          "2026-09-26-arthur-griffith-park-fc-1.jpg",
+          "2026-09-26-arthur-griffith-park-fc-2.jpg"
         ]
       }
     ]
@@ -570,6 +606,9 @@ const GROUNDS = [
         "keywords": [
           "Hartstown Huntstown",
           "UCD"
+        ],
+        "photos": [
+          "2026-10-01-hartstown-huntstown-ucd-1.jpg"
         ]
       }
     ]
@@ -588,6 +627,9 @@ const GROUNDS = [
         "keywords": [
           "Castleknock Celtic",
           "St Paul's Artane"
+        ],
+        "photos": [
+          "2026-10-03-castleknock-celtic-st-pauls-artane-1.jpg"
         ]
       }
     ]
@@ -606,6 +648,10 @@ const GROUNDS = [
         "keywords": [
           "Monread FC",
           "Stella Maris FC"
+        ],
+        "photos": [
+          "2026-10-07-stella-maris-monread-fc-1.jpg",
+          "2026-10-07-stella-maris-monread-fc-2.jpg"
         ]
       }
     ]
