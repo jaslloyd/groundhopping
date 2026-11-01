@@ -37,16 +37,30 @@ const colourFor = (name) => {
   return `hsl(${hash % 360} 45% 38%)`;
 };
 
+// Photos live in photos/ (1800px) with small copies in photos/thumbs/ (480px).
+const photoUrl = (file) => `photos/${file}`;
+const thumbUrl = (file) => `photos/thumbs/${file}`;
+
+// A clickable thumbnail of a game's first photo, with a count when there are more.
+const thumbHtml = (game) =>
+  game.photos?.length
+    ? `<span class="thumb" role="button" tabindex="0" data-game="${game.id}" aria-label="Photos of ${game.title}">` +
+      `<img src="${thumbUrl(game.photos[0])}" alt="" loading="lazy">` +
+      `${game.photos.length > 1 ? `<span>${game.photos.length}</span>` : ""}</span>`
+    : "";
+
 const scrollToMapOnPhones = () => {
   if (innerWidth <= PHONE_WIDTH) scrollTo({ top: 0, behavior: "smooth" });
 };
 
 // ---------- Data ----------
 
-// Every game, newest first, remembering which ground it was at.
+// Every game, newest first, remembering which ground it was at. The game objects are shared
+// with GROUNDS, so a game's id works whether it came from a ground or from this list.
 const games = GROUNDS
-  .flatMap((ground, groundIndex) => ground.games.map((game) => ({ ...game, groundIndex, groundName: ground.name })))
+  .flatMap((ground, groundIndex) => ground.games.map((game) => Object.assign(game, { groundIndex, groundName: ground.name })))
   .sort((a, b) => b.date.localeCompare(a.date));
+games.forEach((game, id) => (game.id = id));
 
 // Club name -> the games I saw them play (charity matches don't count).
 const gamesByClub = {};
@@ -79,7 +93,7 @@ const pinIcon = (count, highlighted = false) => {
 
 const popupHtml = (ground, gamesShown) =>
   `<b>${ground.name}</b><ul>${gamesShown
-    .map((game) => `<li>${shortDate(game.date)} ${game.date.slice(0, 4)} · ${matchLabel(game)}${game.competition ? `<br><small>${game.competition}</small>` : ""}</li>`)
+    .map((game) => `<li>${shortDate(game.date)} ${game.date.slice(0, 4)} · ${matchLabel(game)}${game.competition ? `<br><small>${game.competition}</small>` : ""}${thumbHtml(game)}</li>`)
     .join("")}</ul>`;
 
 // One marker per ground, in the same order as GROUNDS.
@@ -204,6 +218,7 @@ function renderGames() {
           <span class="game-title">${matchLabel(game)}</span><br>
           <span class="game-ground">${venueLine(game)}</span>
         </span>
+        ${thumbHtml(game)}
       </button>`;
   }
   gamesPanel.innerHTML = html;
@@ -295,6 +310,58 @@ function selectClub(card) {
   filterMapToClub(card.dataset.club);
   showClubGames(card);
 }
+
+// ---------- Photo viewer ----------
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = lightbox.querySelector("img");
+const lightboxCaption = lightbox.querySelector("p");
+let viewing = { game: null, index: 0 };
+
+function showPhoto(index) {
+  const { photos } = viewing.game;
+  viewing.index = (index + photos.length) % photos.length;
+  lightboxImage.src = photoUrl(photos[viewing.index]);
+  lightboxImage.alt = `${matchLabel(viewing.game)}, photo ${viewing.index + 1} of ${photos.length}`;
+  lightboxCaption.textContent = viewing.game.caption + (photos.length > 1 ? ` · ${viewing.index + 1} of ${photos.length}` : "");
+  lightbox.classList.toggle("single", photos.length === 1);
+}
+
+function openPhotos(game) {
+  viewing = { game, index: 0 };
+  showPhoto(0);
+  lightbox.showModal();
+}
+
+// Capture phase, so tapping a thumbnail opens the photos instead of also flying to the ground.
+const openFromThumb = (event) => {
+  const thumb = event.target.closest?.(".thumb");
+  if (!thumb || (event.type === "keydown" && event.key !== "Enter" && event.key !== " ")) return;
+  event.preventDefault();
+  event.stopPropagation();
+  openPhotos(games[thumb.dataset.game]);
+};
+document.addEventListener("click", openFromThumb, true);
+document.addEventListener("keydown", openFromThumb, true);
+
+lightbox.addEventListener("click", (event) => {
+  if (event.target.closest(".lightbox-prev")) showPhoto(viewing.index - 1);
+  else if (event.target.closest(".lightbox-next")) showPhoto(viewing.index + 1);
+  else if (event.target === lightbox || event.target.closest(".lightbox-close")) lightbox.close();
+});
+
+lightbox.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft") showPhoto(viewing.index - 1);
+  if (event.key === "ArrowRight") showPhoto(viewing.index + 1);
+});
+
+// Swipe left or right on phones.
+let touchStartX = null;
+lightbox.addEventListener("touchstart", (event) => (touchStartX = event.touches[0].clientX), { passive: true });
+lightbox.addEventListener("touchend", (event) => {
+  const dx = event.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 50 && viewing.game.photos.length > 1) showPhoto(viewing.index + (dx < 0 ? 1 : -1));
+});
 
 // ---------- Tabs ----------
 
