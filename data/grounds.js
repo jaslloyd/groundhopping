@@ -115,6 +115,9 @@ const GROUNDS = [
         "keywords": [
           "UCD",
           "Usher Celtic"
+        ],
+        "photos": [
+          "2026-03-08-ucd-usher-celtic-1.jpg"
         ]
       }
     ]
@@ -134,6 +137,10 @@ const GROUNDS = [
           "Ringsend Park",
           "Sacred Heart FC",
           "St Patrick's CY"
+        ],
+        "photos": [
+          "2026-03-25-st-patricks-cy-sacred-heart-1.jpg",
+          "2026-03-25-st-patricks-cy-sacred-heart-2.jpg"
         ]
       },
       {
@@ -164,6 +171,9 @@ const GROUNDS = [
           "Ireland Selection",
           "Leinster Senior League Selection",
           "Representative match"
+        ],
+        "photos": [
+          "2026-04-01-leinster-senior-league-selection-ireland-selection-1.jpg"
         ]
       }
     ]
@@ -183,6 +193,10 @@ const GROUNDS = [
           "Grangegorman",
           "Killester",
           "Usher Celtic"
+        ],
+        "photos": [
+          "2026-04-02-usher-celtic-killester-1.jpg",
+          "2026-04-02-usher-celtic-killester-2.jpg"
         ]
       }
     ]
@@ -201,6 +215,9 @@ const GROUNDS = [
         "keywords": [
           "Kilnamanagh AFC",
           "St Francis FC"
+        ],
+        "photos": [
+          "2026-04-08-st-francis-fc-kilnamanagh-afc-1.jpg"
         ]
       }
     ]
