@@ -16,6 +16,9 @@ const GROUNDS = [
           "Bray Wanderers",
           "Pre-season friendly",
           "St Patrick's Athletic"
+        ],
+        "photos": [
+          "2023-01-28-st-pats-bray-1.jpg"
         ]
       }
     ]
@@ -35,6 +38,9 @@ const GROUNDS = [
           "Pre-season friendly",
           "St Patrick's Athletic",
           "Tommy Lonergan"
+        ],
+        "photos": [
+          "2024-01-26-st-pats-drogheda-1.jpg"
         ]
       }
     ]
@@ -53,6 +59,9 @@ const GROUNDS = [
         "keywords": [
           "Bangor Celtic",
           "Wayside Celtic"
+        ],
+        "photos": [
+          "2025-10-29-wayside-celtic-bangor-celtic-1.jpg"
         ]
       },
       {
@@ -64,6 +73,9 @@ const GROUNDS = [
         "keywords": [
           "Lucan United FC",
           "Wayside Celtic"
+        ],
+        "photos": [
+          "2025-11-28-wayside-celtic-lucan-united-fc-1.jpg"
         ]
       }
     ]
@@ -82,6 +94,9 @@ const GROUNDS = [
           "Pre-season friendly",
           "Shamrock Rovers",
           "Treaty United"
+        ],
+        "photos": [
+          "2026-01-24-shamrock-rovers-treaty-united-1.jpg"
         ]
       }
     ]
