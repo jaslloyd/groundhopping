@@ -410,6 +410,9 @@ const GROUNDS = [
         "keywords": [
           "Sacred Heart FC",
           "St Patrick's CY"
+        ],
+        "photos": [
+          "2026-06-02-sacred-heart-st-patricks-cy-1.jpg"
         ]
       }
     ]
@@ -428,6 +431,9 @@ const GROUNDS = [
         "keywords": [
           "Inchicore Athletic FC",
           "Tolka Rovers"
+        ],
+        "photos": [
+          "2026-06-05-tolka-rovers-inchicore-athletic-fc-1.jpg"
         ]
       },
       {
@@ -475,6 +481,9 @@ const GROUNDS = [
           "Finglas United",
           "League decider",
           "Malahide United"
+        ],
+        "photos": [
+          "2026-06-07-malahide-united-finglas-united-1.jpg"
         ]
       },
       {
