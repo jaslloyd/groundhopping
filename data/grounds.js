@@ -236,6 +236,10 @@ const GROUNDS = [
         "keywords": [
           "Blackrock College AFC",
           "Collinstown FC"
+        ],
+        "photos": [
+          "2026-04-12-collinstown-fc-blackrock-college-afc-1.jpg",
+          "2026-04-12-collinstown-fc-blackrock-college-afc-2.jpg"
         ]
       },
       {
@@ -247,6 +251,9 @@ const GROUNDS = [
         "keywords": [
           "Ballyfermot United",
           "Dublin University FC"
+        ],
+        "photos": [
+          "2026-05-06-ballyfermot-united-dublin-university-fc-1.jpg"
         ]
       }
     ]
@@ -265,6 +272,9 @@ const GROUNDS = [
         "keywords": [
           "Glenville FC",
           "Templeogue United FC"
+        ],
+        "photos": [
+          "2026-04-15-glenville-fc-templeogue-united-fc-1.jpg"
         ]
       },
       {
@@ -297,6 +307,9 @@ const GROUNDS = [
         "keywords": [
           "Dublin University FC",
           "Glenville FC"
+        ],
+        "photos": [
+          "2026-04-26-dublin-university-fc-glenville-fc-1.jpg"
         ]
       },
       {
@@ -376,6 +389,9 @@ const GROUNDS = [
         "keywords": [
           "Blackrock College AFC",
           "Glenville FC"
+        ],
+        "photos": [
+          "2026-05-20-blackrock-college-afc-glenville-fc-1.jpg"
         ]
       }
     ]
