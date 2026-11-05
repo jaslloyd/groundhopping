@@ -153,6 +153,9 @@ const GROUNDS = [
           "Bluebell United",
           "Liffey Wanderers",
           "Ringsend Park"
+        ],
+        "photos": [
+          "2026-06-03-liffey-wanderers-bluebell-united-1.jpg"
         ]
       }
     ]
@@ -483,7 +486,8 @@ const GROUNDS = [
           "Malahide United"
         ],
         "photos": [
-          "2026-06-07-malahide-united-finglas-united-1.jpg"
+          "2026-06-07-malahide-united-finglas-united-1.jpg",
+          "2026-06-07-malahide-united-finglas-united-2.jpg"
         ]
       },
       {
@@ -596,7 +600,8 @@ const GROUNDS = [
           "Greenhills Park"
         ],
         "photos": [
-          "2026-09-27-greenhills-greenpark-fc-eagles-fc-1.jpg"
+          "2026-09-27-greenhills-greenpark-fc-eagles-fc-1.jpg",
+          "2026-09-27-greenhills-greenpark-fc-eagles-fc-2.jpg"
         ]
       },
       {
@@ -644,7 +649,8 @@ const GROUNDS = [
         ],
         "photos": [
           "2026-09-26-arthur-griffith-park-fc-1.jpg",
-          "2026-09-26-arthur-griffith-park-fc-2.jpg"
+          "2026-09-26-arthur-griffith-park-fc-2.jpg",
+          "2026-09-26-arthur-griffith-park-fc-3.jpg"
         ]
       }
     ]
@@ -727,6 +733,9 @@ const GROUNDS = [
         "keywords": [
           "Home Farm FC",
           "Killester"
+        ],
+        "photos": [
+          "2026-10-08-home-farm-killester-1.jpg"
         ]
       }
     ]
