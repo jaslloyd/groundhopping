@@ -346,6 +346,9 @@ const GROUNDS = [
         "keywords": [
           "Collinstown FC",
           "Dublin Bus FC"
+        ],
+        "photos": [
+          "2026-05-17-dublin-bus-fc-collinstown-fc-1.jpg"
         ]
       },
       {
