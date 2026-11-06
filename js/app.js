@@ -1,9 +1,6 @@
 // Groundhopping map: draws every ground from GROUNDS (data/grounds.js) on a Leaflet map,
 // lists the games in the sidebar, and lets you filter the map to a single club.
 
-// Keywords on a game that aren't club names (tags, places, people).
-const NON_CLUB_KEYWORDS = /Pre-season|Representative|Charity|Played|Park$|League decider|Noely|Lonergan|Selection|Grangegorman/;
-
 const PHONE_WIDTH = 760;
 
 // ---------- Helpers ----------
@@ -18,8 +15,6 @@ const matchLabel = (game) => (game.score ? game.title.replace(" vs ", ` ${game.s
 
 // "Palmerstown Community School · LSL Senior 1A Sunday", or just the ground if the competition isn't known.
 const venueLine = (game) => [game.groundName, game.competition].filter(Boolean).join(" · ");
-
-const clubsIn = (game) => game.keywords.filter((k) => !NON_CLUB_KEYWORDS.test(k));
 
 // "St Patrick's CY" -> "SP", "Glenville FC" -> "G"
 const initials = (name) =>
@@ -65,11 +60,11 @@ games.forEach((game, id) => (game.id = id));
 // Club name -> the games I saw them play (charity matches don't count).
 const gamesByClub = {};
 for (const game of games) {
-  if (game.keywords.includes("Charity match")) continue;
-  for (const club of clubsIn(game)) (gamesByClub[club] ??= []).push(game);
+  if (game.tags?.includes("Charity match")) continue;
+  for (const club of game.clubs) (gamesByClub[club] ??= []).push(game);
 }
 
-const clubCount = new Set(games.flatMap(clubsIn)).size;
+const clubCount = new Set(games.flatMap((game) => game.clubs)).size;
 
 // ---------- Map ----------
 
