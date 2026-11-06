@@ -306,6 +306,141 @@ function selectClub(card) {
   showClubGames(card);
 }
 
+// ---------- Numbers tab ----------
+
+const numbersPanel = document.getElementById("numbers");
+
+// Games with a known score, split into the goals each side got.
+const scoredGames = games
+  .filter((game) => game.score)
+  .map((game) => {
+    const [home, away] = game.score.split(/[\u2013-]/).map(Number);
+    return { game, home, away };
+  });
+
+const goalsSeen = scoredGames.reduce((total, g) => total + g.home + g.away, 0);
+const goalsPerGame = (goalsSeen / scoredGames.length).toFixed(1);
+const photoCount = games.reduce((total, game) => total + (game.photos?.length ?? 0), 0);
+
+// Who won, as a scale running from home win through draw to away win.
+const RESULTS = [
+  ["Home wins", scoredGames.filter((g) => g.home > g.away).length, "home"],
+  ["Draws", scoredGames.filter((g) => g.home === g.away).length, "draw"],
+  ["Away wins", scoredGames.filter((g) => g.home < g.away).length, "away"],
+];
+
+// { key: how many games }, most first, then alphabetical.
+const tallyGames = (keyOf) => {
+  const counts = {};
+  for (const game of games) {
+    const key = keyOf(game);
+    if (key != null) counts[key] = (counts[key] || 0) + 1;
+  }
+  return Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+};
+
+const groundCounts = tallyGames((game) => game.groundName);
+const competitionCounts = tallyGames((game) => game.competition ?? "Not known");
+const monthCounts = tallyGames((game) => Number(game.date.slice(5, 7)));
+
+// The game with the most of something; ties go to the most recent, as games are newest first.
+const gameWithMost = (valueOf) =>
+  scoredGames.reduce((best, g) => (valueOf(g) > valueOf(best) ? g : best));
+
+// One row: name, a bar of its share of the biggest value, the count. Rows with a ground fly there.
+const barRow = (label, count, max, groundIndex) => `
+  <li${groundIndex === undefined ? "" : ` data-ground="${groundIndex}" tabindex="0" role="button"`}>
+    <span class="bar-label">${label}</span>
+    <span class="bar-track"><span class="bar-fill" style="width:${(count / max) * 100}%"></span></span>
+    <span class="bar-value">${count}</span>
+  </li>`;
+
+const barList = (rows, groundIndexOf) => {
+  const max = Math.max(...rows.map(([, count]) => count));
+  return `<ul class="bars">${rows
+    .map(([label, count]) => barRow(label, count, max, groundIndexOf?.(label)))
+    .join("")}</ul>`;
+};
+
+// A column per month, so the season's shape and the gaps in it are visible at a glance.
+// Only the busiest month is labelled; the rest are in each column's tooltip.
+const monthStrip = () => {
+  const byMonth = Object.fromEntries(monthCounts);
+  const busiest = Math.max(...Object.values(byMonth));
+  const months = Array.from({ length: 12 }, (_, i) => ({
+    name: new Date(2000, i, 1).toLocaleDateString("en-IE", { month: "long" }),
+    count: byMonth[i + 1] || 0,
+  }));
+
+  const columns = months.map(({ name, count }) => `
+      <div class="column" title="${name}: ${plural(count, "game")}">
+        <span class="column-value">${count === busiest ? count : ""}</span>
+        <span class="column-track"><span class="column-fill" style="height:${(count / busiest) * 100}%"></span></span>
+        <span class="column-label">${name[0]}</span>
+      </div>`);
+
+  const spoken = months.map(({ name, count }) => `${name} ${count}`).join(", ");
+  return `<div class="columns" role="img" aria-label="Games by month: ${spoken}">${columns.join("")}</div>`;
+};
+
+const recordRow = (label, { game, home, away }, note) => `
+  <li data-ground="${game.groundIndex}" tabindex="0" role="button">
+    <span class="record-label">${label}</span>
+    <span class="record-game">${matchLabel(game)}</span>
+    <span class="record-note">${note(home, away)}</span>
+  </li>`;
+
+function renderNumbers() {
+  const section = (title, note, body) =>
+    `<h3 class="section">${title}${note ? `<span>${note}</span>` : ""}</h3>${body}`;
+
+  const resultsTotal = RESULTS.reduce((total, [, count]) => total + count, 0);
+
+  numbersPanel.innerHTML = `
+    <div class="stats">
+      ${[[goalsSeen, "Goals"], [goalsPerGame, "A game"], [photoCount, "Photos"]]
+        .map(([value, label]) => `<div>${value}<span>${label}</span></div>`)
+        .join("")}
+    </div>
+
+    ${section("Records", null, `<ul class="records">
+      ${recordRow("Most goals", gameWithMost((g) => g.home + g.away), (h, a) => `${h + a} goals`)}
+      ${recordRow("Biggest win", gameWithMost((g) => Math.abs(g.home - g.away)), (h, a) => `by ${Math.abs(h - a)}`)}
+    </ul>`)}
+
+    ${section("Who won", `${scoredGames.length} games with a score`, `
+      <ul class="split">
+        ${RESULTS.map(([label, count, slot]) => `
+          <li>
+            <span class="swatch" data-result="${slot}"></span>
+            <span class="bar-label">${label}</span>
+            <span class="bar-value">${count}</span>
+          </li>`).join("")}
+      </ul>
+      <div class="split-bar" role="img" aria-label="${RESULTS.map(([label, count]) => `${label} ${count}`).join(", ")}">
+        ${RESULTS.map(([, count, slot]) => `<span data-result="${slot}" style="width:${(count / resultsTotal) * 100}%"></span>`).join("")}
+      </div>`)}
+
+    ${section("When I go", "games by month", monthStrip())}
+
+    ${section("Most-visited grounds", "tap to fly there", barList(
+      groundCounts.filter(([, count]) => count > 1),
+      (name) => GROUNDS.findIndex((ground) => ground.name === name),
+    ))}
+
+    ${section("Competitions", null, barList(competitionCounts))}`;
+}
+
+// Flying to a ground works from a grounds bar or a record.
+const flyFromNumbers = (event) => {
+  const row = event.target.closest("[data-ground]");
+  if (!row || (event.type === "keydown" && event.key !== "Enter" && event.key !== " ")) return;
+  event.preventDefault();
+  flyToGround(Number(row.dataset.ground));
+};
+numbersPanel.addEventListener("click", flyFromNumbers);
+numbersPanel.addEventListener("keydown", flyFromNumbers);
+
 // ---------- Photo viewer ----------
 
 const lightbox = document.getElementById("lightbox");
@@ -360,10 +495,11 @@ lightbox.addEventListener("touchend", (event) => {
 
 // ---------- Tabs ----------
 
+const panels = { games: gamesPanel, clubs: clubsPanel, numbers: numbersPanel };
+
 function switchTab(name) {
   document.querySelectorAll(".tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === name));
-  gamesPanel.hidden = name !== "games";
-  clubsPanel.hidden = name !== "clubs";
+  for (const [tab, panel] of Object.entries(panels)) panel.hidden = tab !== name;
 }
 
 document.querySelector(".tabs").addEventListener("click", (event) => {
@@ -371,14 +507,15 @@ document.querySelector(".tabs").addEventListener("click", (event) => {
   if (!tab) return;
   switchTab(tab.dataset.tab);
 
-  // Leaving the Clubs tab drops any club filter.
-  if (tab.dataset.tab === "games" && clubGrid().querySelector(".club.selected")) clearClubSelection();
+  // Leaving the Clubs tab drops any club filter, so every ground is back on the map.
+  if (tab.dataset.tab !== "clubs" && clubGrid().querySelector(".club.selected")) clearClubSelection();
 });
 
 // ---------- Start ----------
 
 renderGames();
 renderClubs();
+renderNumbers();
 
 // Opened from a shared link? Jump straight to that club (name match ignores case).
 const sharedClub = new URLSearchParams(location.search).get("club")?.toLowerCase();
