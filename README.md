@@ -18,7 +18,7 @@ The photos I take at games are the source of truth. Each one gets a title (`Home
 1. [osxphotos](https://github.com/RhetTbull/osxphotos) finds photos taken near pitches and pulls local previews, so nothing has to download from iCloud.
 2. I look at a handful at a time and say who was playing; unknown opponents get `[TBC]`.
 3. `tools/tag.applescript` writes the title, caption and keywords back to Photos, checking the location is untouched.
-4. The tagged photos are grouped by ground into `data/grounds.js`.
+4. The tagged photos are grouped by ground into `data/grounds.js`. A game's Photos keywords are split in two there: `clubs` is the teams that played (these drive the Clubs tab and need a crest), and `tags` is everything else — the competition type, places, people.
 5. Wide shots of the game go on the site: `tools/web-photo.swift` makes a 1800px copy in `photos/` and a 480px thumbnail in `photos/thumbs/`, with all metadata removed (no GPS, time or camera details). Each game lists its files under `photos`.
 
 ## What's where

@@ -1,4 +1,4 @@
-// Club crests, keyed by the club name used in GROUNDS keywords.
+// Club crests, keyed by the club name used in GROUNDS clubs.
 // Clubs missing from here get an initials badge instead.
 const CRESTS = {
   "Arthur Griffith Park FC": "crests/arthur-griffith-park-fc.png",
