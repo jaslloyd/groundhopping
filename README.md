@@ -11,6 +11,8 @@ A map of the Leinster Senior League football games I go to, plus the odd pre-sea
 - **Numbers** tab: goals seen, how the results split between home wins, draws and away wins, which months I actually go, the grounds I keep going back to and the competitions I've seen. All of it worked out from the games, so it keeps itself up to date.
 - **Photos:** games with photos show a thumbnail in the list and in the map popup. Tap it to see the photos full size; swipe or use the arrow keys when there's more than one.
 - **Share a club:** picking a club puts it in the address bar, e.g. [`?club=Glenville FC`](https://jaslloyd.github.io/groundhopping/?club=Glenville%20FC). Opening that link goes straight to the club's filtered map.
+- **Share a game:** opening a game's photos puts the game in the address bar too, e.g. [`?game=2026-10-24-belgard-athletic-vs-kinsealy-united`](https://jaslloyd.github.io/groundhopping/?game=2026-10-24-belgard-athletic-vs-kinsealy-united). Opening that link flies to the ground and opens the photos. The id is the date and the title rather than a number, because I've been to two games on the same day and because a game's place in the list changes every time I add one.
+- **On a phone:** add it to the home screen and it opens full screen, with its own icon.
 
 ## How the data gets made
 
@@ -33,7 +35,8 @@ The photos I take at games are the source of truth. Each one gets a title (`Home
 | `data/crests.js` | Club name → crest image |
 | `crests/` | Crest images |
 | `photos/` | Game photos (and `photos/thumbs/`), named `<date>-<home>-<away>-<n>.jpg` |
-| `icons/` | Favicon (SVG, with PNG fallbacks for older browsers and iPhone home screens) |
+| `icons/` | Favicon (SVG, with PNG fallbacks for older browsers) and the home-screen icons |
+| `manifest.json` | Name, colours and icons for when it's added to a home screen |
 | `tools/tag.applescript` | Writes title, caption and keywords to a photo |
 | `tools/web-photo.swift` | Makes a metadata-free web copy of a photo: `swift tools/web-photo.swift in.heic out.jpg [max-size]` |
 
