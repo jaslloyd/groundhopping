@@ -11,6 +11,13 @@
   --pin: #c8102e;
   --display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --body: "Source Sans 3", system-ui, sans-serif;
+
+  /* Numbers tab. Results run home win -> draw -> away win, so they get two opposite
+     hues with a neutral middle. Both modes were checked for colour-blind separation
+     and 3:1 contrast against the panel; green/red failed, which is why home is blue. */
+  --result-home: #2a78d6;
+  --result-draw: #5d6b62;
+  --result-away: #c8102e;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,6 +29,9 @@
     --line: #2a362e;
     --pitch: #3fb27a;
     --pin: #ff4d63;
+    --result-home: #3987e5;
+    --result-draw: #9aa89f;
+    --result-away: #d94f63;
     color-scheme: dark;
   }
 }
@@ -238,6 +248,141 @@ body {
 .club-games li:hover { color: var(--pitch); }
 
 .hint { margin: 12px 0 0; color: var(--muted); font-size: 12px; }
+
+/* ---------- Numbers tab ---------- */
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin: 20px 0 8px;
+  color: var(--muted);
+  font: 600 12px/1 var(--body);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.section span {
+  font-weight: 400;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+
+.bars,
+.split,
+.records { margin: 0; padding: 0; list-style: none; }
+
+/* A name, a bar of its share of the biggest value, and the count */
+.bars li,
+.split li {
+  display: grid;
+  grid-template-columns: 1fr 56px 18px;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 2px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.split li { grid-template-columns: 10px 1fr 18px; }
+
+.bars li[data-ground] { cursor: pointer; }
+.bars li[data-ground]:hover,
+.bars li[data-ground]:focus-visible,
+.records li:hover,
+.records li:focus-visible {
+  background: color-mix(in srgb, var(--pitch) 12%, transparent);
+  outline: none;
+}
+
+.bar-label { overflow-wrap: anywhere; }
+
+.bar-value {
+  color: var(--muted);
+  font: 700 13px/1 var(--display);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.bar-track {
+  height: 10px;
+  border-radius: 2px;
+  background: var(--bg);
+}
+
+.bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  background: var(--pitch);
+}
+
+/* Who won: a swatch per row carries the identity, so the bar below needs no legend */
+.swatch { width: 10px; height: 10px; border-radius: 50%; }
+
+.split-bar { display: flex; gap: 2px; height: 8px; margin: 6px 0 0; }
+.split-bar span { border-radius: 2px; }
+.split-bar span:first-child { border-top-left-radius: 999px; border-bottom-left-radius: 999px; }
+.split-bar span:last-child { border-top-right-radius: 999px; border-bottom-right-radius: 999px; }
+
+[data-result="home"] { background: var(--result-home); }
+[data-result="draw"] { background: var(--result-draw); }
+[data-result="away"] { background: var(--result-away); }
+
+/* Games by month: twelve columns on a hairline baseline, empty months left empty */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2px;
+  align-items: end;
+  border-bottom: 1px solid var(--line);
+}
+
+.column { display: grid; justify-items: center; gap: 3px; }
+
+.column-value {
+  min-height: 11px;
+  color: var(--muted);
+  font: 700 11px/1 var(--display);
+  font-variant-numeric: tabular-nums;
+}
+
+.column-track { display: flex; align-items: flex-end; width: 14px; height: 54px; }
+
+.column-fill {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  background: var(--pitch);
+}
+
+.column-label {
+  margin-bottom: 3px;
+  color: var(--muted);
+  font: 600 10px/1 var(--body);
+}
+
+.records li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 8px;
+  cursor: pointer;
+  padding: 5px 2px;
+  border-radius: 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.record-label {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font: 600 11px/1 var(--body);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.record-game { font-weight: 600; }
+.record-note { color: var(--muted); font-size: 12px; }
 
 /* ---------- Map pins, popups and the "show all" control ---------- */
 
