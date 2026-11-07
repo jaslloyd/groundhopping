@@ -447,10 +447,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* object-fit fits a crest to its square, but the pin is the circle inside that square, so a
-     shield-shaped crest would hang out of the disc. This padding leaves an 18px square inside the
-     28px circle (18 x sqrt2 = 25.5), so even a square crest stays in. */
-  padding: 5px;
+  /* object-fit fits a crest to its square, but the pin is a circle, so artwork near the corners
+     of that square hangs out of the disc. How much padding that needs was measured rather than
+     guessed: across the crests actually used, the furthest opaque pixel sits at 1.34x the
+     artwork's half-width (Stella Maris; most are nearer 1.1), not the 1.41x a crest filling its
+     whole square would reach. The border counts as disc here, being white too, so 4px leaves a
+     24px crest whose furthest point lands 16px out with the disc edge at 18px. */
+  padding: 4px;
   background: #fff;
   /* A hairline under the white border, so the disc still has an edge on pale street tiles */
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .22), 0 1px 5px rgba(0, 0, 0, .4);

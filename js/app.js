@@ -115,7 +115,7 @@ L.tileLayer(TILES, { maxZoom: darkMode ? 16 : 19, attribution: "Tiles &copy; Esr
 const pinIcon = (count, club = null, highlighted = false) => {
   // A crest pin is one size: the badge marks a repeat ground, so it needs no size bump too, and
   // 38px keeps the pins from crowding each other across Dublin. A plain pin still grows instead.
-  const size = club ? 32 : count > 1 ? 30 : 24;
+  const size = club ? 36 : count > 1 ? 30 : 24;
   // A crest fills the pin, so the count moves to a corner badge; a plain pin still just says it.
   const badge = club && count > 1 ? `<span class="count">${count}</span>` : "";
   const inside = club
