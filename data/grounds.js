@@ -10,7 +10,7 @@ const GROUNDS = [
     "name": "AUL Complex, Clonshaugh",
     "lat": 53.41978,
     "lon": -6.2162,
-    "club": null,
+    "club": "St Patrick's Athletic",
     "games": [
       {
         "title": "St Pats vs Bray",
@@ -34,13 +34,14 @@ const GROUNDS = [
     "name": "TU Dublin Blanchardstown",
     "lat": 53.40573,
     "lon": -6.38207,
-    "club": null,
+    "club": "St Patrick's Athletic",
     "games": [
       {
         "title": "St Pats vs Drogheda",
         "date": "2024-01-26",
+        "score": "2–1",
         "competition": "Pre-season friendly",
-        "caption": "St Pats vs Drogheda – pre-season friendly, TU Dublin Blanchardstown, 26 Jan 2024. Tommy Lonergan's last game for Pats before he joined Fleetwood Town.",
+        "caption": "St Pats 2–1 Drogheda – pre-season friendly, TU Dublin Blanchardstown, 26 Jan 2024. Tommy Lonergan's last game for Pats before he joined Fleetwood Town.",
         "clubs": [
           "Drogheda United",
           "St Patrick's Athletic"
