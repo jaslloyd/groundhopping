@@ -830,5 +830,26 @@ const GROUNDS = [
         ]
       }
     ]
+  },
+  {
+    "name": "Brickfield Astro, Crumlin",
+    "lat": 53.3309,
+    "lon": -6.30677,
+    "games": [
+      {
+        "title": "St John Bosco FC vs Castleknock Celtic",
+        "date": "2026-11-06",
+        "score": "3–0",
+        "competition": "LSL Major Sunday",
+        "caption": "St John Bosco FC 3–0 Castleknock Celtic – Brickfield Astro, Crumlin, 6 Nov 2026.",
+        "clubs": [
+          "Castleknock Celtic",
+          "St John Bosco FC"
+        ],
+        "photos": [
+          "2026-11-06-st-john-bosco-fc-castleknock-celtic-1.jpg"
+        ]
+      }
+    ]
   }
 ];
