@@ -448,16 +448,17 @@ body {
   align-items: center;
   justify-content: center;
   /* object-fit fits a crest to its square, but the pin is the circle inside that square, so a
-     shield-shaped crest would hang out of the disc. This padding leaves a 24px square inside the
-     34px circle (24 x sqrt2 = 33.9), which is the biggest square that fits. It also tucks the one
-     crest with a baked-in white background onto the white disc, where it can't be seen. */
+     shield-shaped crest would hang out of the disc. This padding leaves an 18px square inside the
+     28px circle (18 x sqrt2 = 25.5), so even a square crest stays in. */
   padding: 5px;
   background: #fff;
   /* A hairline under the white border, so the disc still has an edge on pale street tiles */
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .22), 0 1px 5px rgba(0, 0, 0, .4);
 }
 
-.pin.crest img { max-width: 100%; max-height: 100%; display: block; }
+/* width/height, not max-*: Leaflet forces `max-width/max-height: none !important` on every img in
+   the marker pane, so a max-* cap is ignored and the crest renders at its full 128px. */
+.pin.crest img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
 /* Same placeholder as the Clubs tab, for a home club with no crest file */
 .pin.crest .initials {
