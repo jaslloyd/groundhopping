@@ -26,6 +26,18 @@ const initials = (name) =>
     .join("")
     .slice(0, 3);
 
+// The home side of a game, as a club name that matches CRESTS and the Clubs tab.
+// A title is "Home vs Away", so the home name is the first half - but it's the name I'd say out
+// loud ("Stella Maris"), not always the full club name in `clubs` ("Stella Maris FC"), so the
+// suffix is ignored when matching. Anything that isn't one of the two clubs that played gives
+// null: charity matches with no "vs", selection sides, and short names like "St Pats".
+const homeClub = (game) => {
+  const [home] = game.title.split(" vs ");
+  const tidy = (name) => name.replace(/\b(FC|AFC|CY)\b/g, "").trim().toLowerCase();
+  const clubs = game.clubs ?? [];
+  return clubs.find((club) => club === home) ?? clubs.find((club) => tidy(club) === tidy(home)) ?? null;
+};
+
 // A stable colour per club name, so placeholders don't change between visits.
 const colourFor = (name) => {
   const hash = [...name].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
@@ -66,6 +78,24 @@ for (const game of games) {
 
 const clubCount = new Set(games.flatMap((game) => game.clubs)).size;
 
+// The club whose crest a ground gets on the map, in the same order as GROUNDS.
+// Plenty of these pitches are council or school grounds that several clubs play out of, so this
+// isn't "whose ground it is" - it's the club I've most often watched host there, with the most
+// recent game breaking a tie. Working it out from the games means it follows them: see a new
+// club host at a shared ground often enough and the pin changes by itself.
+// A ground can set "club" to overrule it, or to null for a plain numbered pin at a neutral venue.
+const groundClubs = GROUNDS.map((ground) => {
+  if ("club" in ground) return ground.club;
+
+  const seen = new Map(); // club -> games watched hosting here, newest game first within each
+  for (const game of [...ground.games].sort((a, b) => b.date.localeCompare(a.date))) {
+    const club = homeClub(game);
+    if (club) seen.set(club, (seen.get(club) ?? 0) + 1);
+  }
+  // Map keeps insertion order, so an equal count leaves the most recently seen club in front.
+  return [...seen.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+});
+
 // ---------- Map ----------
 
 const map = L.map("map");
@@ -77,11 +107,28 @@ const TILES = darkMode
   : "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}";
 L.tileLayer(TILES, { maxZoom: darkMode ? 16 : 19, attribution: "Tiles &copy; Esri" }).addTo(map);
 
-const pinIcon = (count, highlighted = false) => {
-  const size = count > 1 ? 30 : 24;
+// A ground's marker: the home club's crest on a white disc, with the number of games in a corner
+// badge once I've been more than once. Grounds with no home club to show (neutral venues) keep a
+// plain numbered pin, and so does a club with no crest file, falling back to its initials badge.
+// Crests are busy at this size and read as colour rather than detail, which is the point - it's
+// the variety that tells the grounds apart at a glance. The popup still names the ground.
+const pinIcon = (count, club = null, highlighted = false) => {
+  // A crest pin is one size: the badge marks a repeat ground, so it needs no size bump too, and
+  // 38px keeps the pins from crowding each other across Dublin. A plain pin still grows instead.
+  const size = club ? 36 : count > 1 ? 30 : 24;
+  // A crest fills the pin, so the count moves to a corner badge; a plain pin still just says it.
+  const badge = club && count > 1 ? `<span class="count">${count}</span>` : "";
+  const inside = club
+    ? CRESTS[club]
+      ? `<img src="${CRESTS[club]}" alt="">`
+      : `<span class="initials" style="--badge-colour:${colourFor(club)}">${initials(club)}</span>`
+    : count;
+
   return L.divIcon({
     className: "",
-    html: `<div class="pin${highlighted ? " highlighted" : ""}" style="width:${size}px;height:${size}px">${count}</div>`,
+    html:
+      `<div class="pin${club ? " crest" : ""}${highlighted ? " highlighted" : ""}" ` +
+      `style="width:${size}px;height:${size}px">${inside}${badge}</div>`,
     iconSize: [size, size],
   });
 };
@@ -92,8 +139,8 @@ const popupHtml = (ground, gamesShown) =>
     .join("")}</ul>`;
 
 // One marker per ground, in the same order as GROUNDS.
-const markers = GROUNDS.map((ground) =>
-  L.marker([ground.lat, ground.lon], { icon: pinIcon(ground.games.length) })
+const markers = GROUNDS.map((ground, groundIndex) =>
+  L.marker([ground.lat, ground.lon], { icon: pinIcon(ground.games.length, groundClubs[groundIndex]) })
     .bindPopup(popupHtml(ground, ground.games))
     .addTo(map)
 );
@@ -172,7 +219,7 @@ function filterMapToClub(club) {
       marker.remove();
       return;
     }
-    marker.setIcon(pinIcon(clubGames.length, true));
+    marker.setIcon(pinIcon(clubGames.length, groundClubs[i], true));
     marker.setPopupContent(popupHtml(ground, clubGames));
     marker.addTo(map);
     visible.push(marker);
@@ -198,7 +245,7 @@ function showAllGrounds() {
   syncUrlAndTitle();
   showAllControl.remove();
   GROUNDS.forEach((ground, i) => {
-    markers[i].setIcon(pinIcon(ground.games.length));
+    markers[i].setIcon(pinIcon(ground.games.length, groundClubs[i]));
     markers[i].setPopupContent(popupHtml(ground, ground.games));
     markers[i].addTo(map);
   });

@@ -438,6 +438,67 @@ body {
 
 .pin.highlighted { background: var(--pitch); }
 
+/* Crest pin: the club I've most often seen host at this ground. The white disc is what makes
+   crests of any colour read against both the street and the dark tiles. */
+.pin.crest {
+  position: relative;
+  /* Flex, not the grid .pin uses: a percentage height on the crest only resolves against a
+     definite container height here, and without it a tall crest keeps its own aspect and spills. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* object-fit fits a crest to its square, but the pin is a circle, so artwork near the corners
+     of that square hangs out of the disc. How much padding that needs was measured rather than
+     guessed: across the crests actually used, the furthest opaque pixel sits at 1.34x the
+     artwork's half-width (Stella Maris; most are nearer 1.1), not the 1.41x a crest filling its
+     whole square would reach. The border counts as disc here, being white too, so 4px leaves a
+     24px crest whose furthest point lands 16px out with the disc edge at 18px. */
+  padding: 4px;
+  background: #fff;
+  /* A hairline under the white border, so the disc still has an edge on pale street tiles */
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .22), 0 1px 5px rgba(0, 0, 0, .4);
+}
+
+/* width/height, not max-*: Leaflet forces `max-width/max-height: none !important` on every img in
+   the marker pane, so a max-* cap is ignored and the crest renders at its full 128px. */
+.pin.crest img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+/* Same placeholder as the Clubs tab, for a home club with no crest file */
+.pin.crest .initials {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--badge-colour);
+  color: #fff;
+  font: 700 11px/1 var(--display);
+}
+
+/* Filtered to one club: a green ring round the disc, since the crest fills the pin itself */
+.pin.crest.highlighted {
+  background: #fff;
+  border-color: var(--pitch);
+  box-shadow: 0 0 0 1px var(--pitch), 0 1px 5px rgba(0, 0, 0, .4);
+}
+
+/* Games played here, once there's been more than one */
+.pin .count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: grid;
+  place-items: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: var(--pitch);
+  color: #fff;
+  font: 700 11px/1 var(--display);
+  box-shadow: 0 0 0 2px #fff;
+}
+
 .leaflet-popup-content { font: 14px/1.4 var(--body); }
 .leaflet-popup-content b {
   color: #1f7a4a;
