@@ -120,21 +120,32 @@ const gameSlug = (game) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 
-// What the address bar is pointing at: a filtered club, open photos, or both.
+// What the address bar is pointing at: the tab showing, a filtered club, open photos.
+const DEFAULT_TAB = "games";
+let activeTab = DEFAULT_TAB;
 let selectedClub = null;
 let openGame = null;
 
-// Keep both in the address bar (?club=Glenville%20FC, ?game=2026-04-15-glenville-fc-vs-templeogue-united-fc)
-// so either view can be shared, and show whichever is in front in the tab title.
+// "grounds" -> "Grounds", from the tab's own button so there's one source of truth.
+const tabLabel = (tab) => document.querySelector(`.tabs button[data-tab="${tab}"]`)?.textContent ?? tab;
+
+// Keep the view in the address bar (?tab=grounds, ?club=Glenville%20FC,
+// ?game=2026-04-15-glenville-fc-vs-templeogue-united-fc) so any of it can be shared, and put
+// whatever is in front in the tab title.
 function syncUrlAndTitle() {
+  // A club can only be picked on the Clubs tab, so ?club= already says which tab that is, and
+  // the Games tab is where the page starts. Neither needs a ?tab= as well.
+  const tabInUrl = activeTab !== DEFAULT_TAB && !selectedClub ? activeTab : null;
+
   const url = new URL(location.href);
-  for (const [key, value] of [["club", selectedClub], ["game", openGame && gameSlug(openGame)]]) {
+  for (const [key, value] of [["tab", tabInUrl], ["club", selectedClub], ["game", openGame && gameSlug(openGame)]]) {
     if (value) url.searchParams.set(key, value);
     else url.searchParams.delete(key);
   }
   history.replaceState(null, "", url);
 
-  const inFront = openGame ? matchLabel(openGame) : selectedClub;
+  const tabInTitle = activeTab === DEFAULT_TAB ? null : tabLabel(activeTab);
+  const inFront = openGame ? matchLabel(openGame) : selectedClub ?? tabInTitle;
   document.title = inFront ? `${SITE_TITLE} - ${inFront}` : SITE_TITLE;
 }
 
@@ -560,8 +571,10 @@ lightbox.addEventListener("touchend", (event) => {
 const panels = { games: gamesPanel, clubs: clubsPanel, grounds: groundsPanel, numbers: numbersPanel };
 
 function switchTab(name) {
+  activeTab = name;
   document.querySelectorAll(".tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === name));
   for (const [tab, panel] of Object.entries(panels)) panel.hidden = tab !== name;
+  syncUrlAndTitle();
 }
 
 document.querySelector(".tabs").addEventListener("click", (event) => {
@@ -580,20 +593,29 @@ renderClubs();
 renderGrounds();
 renderNumbers();
 
-// Opened from a shared link? Jump straight to that club (name match ignores case).
+// Opened from a shared link? Jump straight to that club (name match ignores case). A club
+// takes precedence over any ?tab=, because picking one only means something on the Clubs tab.
 const shared = new URLSearchParams(location.search);
 const sharedClub = shared.get("club")?.toLowerCase();
 const sharedCard = sharedClub && [...clubsPanel.querySelectorAll(".club")].find((c) => c.dataset.club.toLowerCase() === sharedClub);
+const sharedTab = shared.get("tab")?.toLowerCase();
+
 if (sharedCard) {
   switchTab("clubs");
   selectClub(sharedCard);
+} else if (sharedTab && Object.hasOwn(panels, sharedTab)) {
+  switchTab(sharedTab);
 }
 
-// Shared link to a game: show the ground and open its photos. A club in the same link has
-// already flown the map to its grounds, so leave that view alone.
+// Shared link to a game: show the ground and open its photos. Photos open over any tab, so
+// this is last and doesn't care which one is showing. A club in the same link has already
+// flown the map to its grounds, so leave that view alone.
 const sharedSlug = shared.get("game")?.toLowerCase();
 const sharedGame = sharedSlug && games.find((game) => gameSlug(game) === sharedSlug);
 if (sharedGame) {
   if (!sharedCard) flyToGround(sharedGame.groundIndex);
   if (sharedGame.photos?.length) openPhotos(sharedGame);
 }
+
+// Leave the address bar describing what's actually on screen, dropping anything that didn't resolve.
+syncUrlAndTitle();
