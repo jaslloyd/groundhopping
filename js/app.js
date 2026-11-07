@@ -110,14 +110,32 @@ const flyToGround = (groundIndex) => {
 
 const SITE_TITLE = document.title;
 
-// Keep the selected club in the address bar (?club=Glenville%20FC) so a filtered view can be shared,
-// and in the tab title ("Groundhopping Map - Glenville FC").
-function showClubInUrlAndTitle(club) {
+// A game's id in a link: "2026-10-24-dublin-bus-fc-vs-blackrock-college-afc". The date alone
+// won't do, as I've been to two games on the same day, and the position in the games list
+// changes every time a game is added. Only retitling a game changes its link.
+const gameSlug = (game) =>
+  `${game.date} ${game.title}`
+    .toLowerCase()
+    .replace(/['\u2019]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+// What the address bar is pointing at: a filtered club, open photos, or both.
+let selectedClub = null;
+let openGame = null;
+
+// Keep both in the address bar (?club=Glenville%20FC, ?game=2026-04-15-glenville-fc-vs-templeogue-united-fc)
+// so either view can be shared, and show whichever is in front in the tab title.
+function syncUrlAndTitle() {
   const url = new URL(location.href);
-  if (club) url.searchParams.set("club", club);
-  else url.searchParams.delete("club");
+  for (const [key, value] of [["club", selectedClub], ["game", openGame && gameSlug(openGame)]]) {
+    if (value) url.searchParams.set(key, value);
+    else url.searchParams.delete(key);
+  }
   history.replaceState(null, "", url);
-  document.title = club ? `${SITE_TITLE} - ${club}` : SITE_TITLE;
+
+  const inFront = openGame ? matchLabel(openGame) : selectedClub;
+  document.title = inFront ? `${SITE_TITLE} - ${inFront}` : SITE_TITLE;
 }
 
 // "Glenville FC · 5 games  ✕ Show all" button, shown while the map is filtered.
@@ -132,7 +150,8 @@ showAllControl.onAdd = () => {
 // Show only the grounds where this club played, with counts and popups for that club.
 function filterMapToClub(club) {
   map.closePopup();
-  showClubInUrlAndTitle(club);
+  selectedClub = club;
+  syncUrlAndTitle();
   const visible = [];
 
   GROUNDS.forEach((ground, i) => {
@@ -164,7 +183,8 @@ function filterMapToClub(club) {
 // Put every ground back with its full game count.
 function showAllGrounds() {
   map.closePopup();
-  showClubInUrlAndTitle(null);
+  selectedClub = null;
+  syncUrlAndTitle();
   showAllControl.remove();
   GROUNDS.forEach((ground, i) => {
     markers[i].setIcon(pinIcon(ground.games.length));
@@ -461,7 +481,15 @@ function openPhotos(game) {
   viewing = { game, index: 0 };
   showPhoto(0);
   lightbox.showModal();
+  openGame = game;
+  syncUrlAndTitle();
 }
+
+// Covers every way out of the photos: the close button, the backdrop and Escape.
+lightbox.addEventListener("close", () => {
+  openGame = null;
+  syncUrlAndTitle();
+});
 
 // Capture phase, so tapping a thumbnail opens the photos instead of also flying to the ground.
 const openFromThumb = (event) => {
@@ -518,9 +546,19 @@ renderClubs();
 renderNumbers();
 
 // Opened from a shared link? Jump straight to that club (name match ignores case).
-const sharedClub = new URLSearchParams(location.search).get("club")?.toLowerCase();
+const shared = new URLSearchParams(location.search);
+const sharedClub = shared.get("club")?.toLowerCase();
 const sharedCard = sharedClub && [...clubsPanel.querySelectorAll(".club")].find((c) => c.dataset.club.toLowerCase() === sharedClub);
 if (sharedCard) {
   switchTab("clubs");
   selectClub(sharedCard);
+}
+
+// Shared link to a game: show the ground and open its photos. A club in the same link has
+// already flown the map to its grounds, so leave that view alone.
+const sharedSlug = shared.get("game")?.toLowerCase();
+const sharedGame = sharedSlug && games.find((game) => gameSlug(game) === sharedSlug);
+if (sharedGame) {
+  if (!sharedCard) flyToGround(sharedGame.groundIndex);
+  if (sharedGame.photos?.length) openPhotos(sharedGame);
 }
