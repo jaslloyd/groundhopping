@@ -847,8 +847,7 @@ const GROUNDS = [
           "St John Bosco FC"
         ],
         "photos": [
-          "2026-11-06-st-john-bosco-fc-castleknock-celtic-1.jpg",
-          "2026-11-06-st-john-bosco-fc-castleknock-celtic-2.jpg"
+          "2026-11-06-st-john-bosco-fc-castleknock-celtic-1.jpg"
         ]
       }
     ]
