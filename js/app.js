@@ -326,6 +326,40 @@ function selectClub(card) {
   showClubGames(card);
 }
 
+// ---------- Grounds tab ----------
+
+const groundsPanel = document.getElementById("grounds");
+
+// Every ground A-Z, so a name can be found by scanning. The Numbers tab is where
+// they're ranked by how often I've been.
+const groundRows = GROUNDS
+  .map((ground, groundIndex) => ({
+    name: ground.name,
+    groundIndex,
+    games: ground.games.length,
+    // The games are already newest first within a ground once app.js has sorted them.
+    latest: ground.games.reduce((newest, game) => (game.date > newest ? game.date : newest), ""),
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+function renderGrounds() {
+  const rows = groundRows.map(({ name, groundIndex, games, latest }) => `
+    <button class="ground" data-ground="${groundIndex}">
+      <span class="ground-date">${shortDate(latest)}<br>${latest.slice(0, 4)}</span>
+      <span class="ground-name">${name}</span>
+      <span class="ground-count">${games > 1 ? plural(games, "game") : ""}</span>
+    </button>`).join("");
+
+  const repeat = groundRows.filter((ground) => ground.games > 1).length;
+  groundsPanel.innerHTML = `${rows}
+    <p class="hint">${plural(GROUNDS.length, "ground")} · ${repeat} I've been back to · the date is my most recent game there</p>`;
+}
+
+groundsPanel.addEventListener("click", (event) => {
+  const button = event.target.closest(".ground");
+  if (button) flyToGround(Number(button.dataset.ground));
+});
+
 // ---------- Numbers tab ----------
 
 const numbersPanel = document.getElementById("numbers");
@@ -523,7 +557,7 @@ lightbox.addEventListener("touchend", (event) => {
 
 // ---------- Tabs ----------
 
-const panels = { games: gamesPanel, clubs: clubsPanel, numbers: numbersPanel };
+const panels = { games: gamesPanel, clubs: clubsPanel, grounds: groundsPanel, numbers: numbersPanel };
 
 function switchTab(name) {
   document.querySelectorAll(".tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === name));
@@ -543,6 +577,7 @@ document.querySelector(".tabs").addEventListener("click", (event) => {
 
 renderGames();
 renderClubs();
+renderGrounds();
 renderNumbers();
 
 // Opened from a shared link? Jump straight to that club (name match ignores case).

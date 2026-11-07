@@ -8,6 +8,7 @@ A map of the Leinster Senior League football games I go to, plus the odd pre-sea
 
 - **Games** tab: every game, newest first. Click one to fly to the ground.
 - **Clubs** tab: every club I've seen, with how many times. Click a club to filter the map to just its grounds and games.
+- **Grounds** tab: every ground A–Z with the date I was last there, and how many games when I've been more than once. Click one to fly to it.
 - **Numbers** tab: goals seen, how the results split between home wins, draws and away wins, which months I actually go, the grounds I keep going back to and the competitions I've seen. All of it worked out from the games, so it keeps itself up to date.
 - **Photos:** games with photos show a thumbnail in the list and in the map popup. Tap it to see the photos full size; swipe or use the arrow keys when there's more than one.
 - **Share a club:** picking a club puts it in the address bar, e.g. [`?club=Glenville FC`](https://jaslloyd.github.io/groundhopping/?club=Glenville%20FC). Opening that link goes straight to the club's filtered map.
@@ -30,7 +31,7 @@ The photos I take at games are the source of truth. Each one gets a title (`Home
 |---|---|
 | `index.html` | Page structure only |
 | `css/styles.css` | All styling, light and dark mode |
-| `js/app.js` | Map, games list, clubs tab, club filter and the numbers |
+| `js/app.js` | Map, the games, clubs, grounds and numbers tabs, and the club filter |
 | `data/grounds.js` | Every ground with the games seen there — add new games here |
 | `data/crests.js` | Club name → crest image |
 | `crests/` | Crest images |
