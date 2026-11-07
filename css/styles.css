@@ -438,6 +438,63 @@ body {
 
 .pin.highlighted { background: var(--pitch); }
 
+/* Crest pin: the club I've most often seen host at this ground. The white disc is what makes
+   crests of any colour read against both the street and the dark tiles. */
+.pin.crest {
+  position: relative;
+  /* Flex, not the grid .pin uses: a percentage height on the crest only resolves against a
+     definite container height here, and without it a tall crest keeps its own aspect and spills. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* object-fit fits a crest to its square, but the pin is the circle inside that square, so a
+     shield-shaped crest would hang out of the disc. This padding leaves a 24px square inside the
+     34px circle (24 x sqrt2 = 33.9), which is the biggest square that fits. It also tucks the one
+     crest with a baked-in white background onto the white disc, where it can't be seen. */
+  padding: 5px;
+  background: #fff;
+  /* A hairline under the white border, so the disc still has an edge on pale street tiles */
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .22), 0 1px 5px rgba(0, 0, 0, .4);
+}
+
+.pin.crest img { max-width: 100%; max-height: 100%; display: block; }
+
+/* Same placeholder as the Clubs tab, for a home club with no crest file */
+.pin.crest .initials {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--badge-colour);
+  color: #fff;
+  font: 700 11px/1 var(--display);
+}
+
+/* Filtered to one club: a green ring round the disc, since the crest fills the pin itself */
+.pin.crest.highlighted {
+  background: #fff;
+  border-color: var(--pitch);
+  box-shadow: 0 0 0 1px var(--pitch), 0 1px 5px rgba(0, 0, 0, .4);
+}
+
+/* Games played here, once there's been more than one */
+.pin .count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: grid;
+  place-items: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: var(--pitch);
+  color: #fff;
+  font: 700 11px/1 var(--display);
+  box-shadow: 0 0 0 2px #fff;
+}
+
 .leaflet-popup-content { font: 14px/1.4 var(--body); }
 .leaflet-popup-content b {
   color: #1f7a4a;

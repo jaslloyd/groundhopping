@@ -1,4 +1,7 @@
 // Every ground I've been to, with the games I saw there.
+// A ground's map pin shows the crest of the club I've most often watched host there, worked out
+// from the games, so it normally needs nothing here. Set "club" to overrule that, or to null for
+// a plain numbered pin where no one is really at home: a neutral venue or a selection side.
 // Each game: title ("Home vs Away"), date (YYYY-MM-DD), optional score ("2–2", home first),
 // optional competition (league or cup, from Final Whistle), caption, clubs (the teams that played)
 // and optional tags (anything else keyworded in Photos: the competition type, places, people).
@@ -7,6 +10,7 @@ const GROUNDS = [
     "name": "AUL Complex, Clonshaugh",
     "lat": 53.41978,
     "lon": -6.2162,
+    "club": null,
     "games": [
       {
         "title": "St Pats vs Bray",
@@ -30,6 +34,7 @@ const GROUNDS = [
     "name": "TU Dublin Blanchardstown",
     "lat": 53.40573,
     "lon": -6.38207,
+    "club": null,
     "games": [
       {
         "title": "St Pats vs Drogheda",
@@ -175,6 +180,7 @@ const GROUNDS = [
     "name": "Dublin 15",
     "lat": 53.38346,
     "lon": -6.33462,
+    "club": null,
     "games": [
       {
         "title": "Leinster Senior League Selection vs Ireland Selection",
@@ -550,6 +556,7 @@ const GROUNDS = [
     "name": "Bluebell United's ground",
     "lat": 53.3208,
     "lon": -6.36444,
+    "club": "Bluebell United",
     "games": [
       {
         "title": "Charity match – played with Noely",

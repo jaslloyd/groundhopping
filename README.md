@@ -10,6 +10,7 @@ A map of the Leinster Senior League football games I go to, plus the odd pre-sea
 - **Clubs** tab: every club I've seen, with how many times. Click a club to filter the map to just its grounds and games.
 - **Grounds** tab: every ground A–Z with the date I was last there, and how many games when I've been more than once. Click one to fly to it.
 - **Numbers** tab: goals seen, how the results split between home wins, draws and away wins, which months I actually go, the grounds I keep going back to and the competitions I've seen. All of it worked out from the games, so it keeps itself up to date.
+- **Map pins:** each ground wears the crest of the club I've most often watched host there, with a badge for the number of games once I've been more than once. A lot of these are council and school pitches that several clubs play out of, so the crest says who I saw at home rather than whose ground it is, and it re-works itself out of the games as I add them. Neutral venues — pre-season friendlies, the selection game — keep a plain numbered pin.
 - **Photos:** games with photos show a thumbnail in the list and in the map popup. Tap it to see the photos full size; swipe or use the arrow keys when there's more than one.
 - **Share a tab:** whichever tab is open is in the address bar, e.g. [`?tab=grounds`](https://jaslloyd.github.io/groundhopping/?tab=grounds), and it combines with the two below. Games is where the page starts so it's left out, and a club link already says the Clubs tab.
 - **Share a club:** picking a club puts it in the address bar, e.g. [`?club=Glenville FC`](https://jaslloyd.github.io/groundhopping/?club=Glenville%20FC). Opening that link goes straight to the club's filtered map.
@@ -33,7 +34,7 @@ The photos I take at games are the source of truth. Each one gets a title (`Home
 | `index.html` | Page structure only |
 | `css/styles.css` | All styling, light and dark mode |
 | `js/app.js` | Map, the games, clubs, grounds and numbers tabs, and the club filter |
-| `data/grounds.js` | Every ground with the games seen there — add new games here |
+| `data/grounds.js` | Every ground with the games seen there — add new games here. A ground can set `club` to pick its pin crest, or `null` for a plain pin |
 | `data/crests.js` | Club name → crest image |
 | `crests/` | Crest images |
 | `photos/` | Game photos (and `photos/thumbs/`), named `<date>-<home>-<away>-<n>.jpg` |
