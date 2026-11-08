@@ -9,6 +9,7 @@ const CRESTS = {
   "Bluebell United": "crests/bluebell-united.png",
   "Bray Wanderers": "crests/bray-wanderers.png",
   "Castleknock Celtic": "crests/castleknock-celtic.png",
+  "Cherry Orchard FC": "crests/cherry-orchard-fc.png",
   "Collinstown FC": "crests/collinstown-fc.png",
   "Drogheda United": "crests/drogheda-united.png",
   "Dublin Bus FC": "crests/dublin-bus-fc.png",
