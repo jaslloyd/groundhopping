@@ -667,6 +667,21 @@ const GROUNDS = [
         "photos": [
           "2026-10-31-greenhills-greenpark-fc-st-john-vianney-fc-1.jpg"
         ]
+      },
+      {
+        "title": "Greenhills Greenpark FC vs Cherry Orchard FC",
+        "date": "2026-11-08",
+        "score": "4–3",
+        "competition": "LSL Premier Sunday",
+        "caption": "Greenhills Greenpark FC 4–3 Cherry Orchard FC – Greenhills Park, 8 Nov 2026.",
+        "clubs": [
+          "Cherry Orchard FC",
+          "Greenhills Greenpark FC"
+        ],
+        "photos": [
+          "2026-11-08-greenhills-greenpark-fc-cherry-orchard-fc-1.jpg",
+          "2026-11-08-greenhills-greenpark-fc-cherry-orchard-fc-2.jpg"
+        ]
       }
     ]
   },
