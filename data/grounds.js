@@ -874,5 +874,28 @@ const GROUNDS = [
         ]
       }
     ]
+  },
+  {
+    "name": "Porterstown Road, Clonsilla",
+    "lat": 53.37777,
+    "lon": -6.4048,
+    "games": [
+      {
+        "title": "St Mochta's FC vs Greystones United AFC",
+        "date": "2026-11-13",
+        "score": "6–2",
+        "competition": "FAI Intermediate Cup",
+        "caption": "St Mochta's FC 6–2 Greystones United AFC (aet) – Porterstown Road, Clonsilla, 13 Nov 2026.",
+        "clubs": [
+          "Greystones United AFC",
+          "St Mochta's FC"
+        ],
+        "photos": [
+          "2026-11-13-st-mochtas-fc-greystones-united-afc-1.jpg",
+          "2026-11-13-st-mochtas-fc-greystones-united-afc-2.jpg",
+          "2026-11-13-st-mochtas-fc-greystones-united-afc-3.jpg"
+        ]
+      }
+    ]
   }
 ];
