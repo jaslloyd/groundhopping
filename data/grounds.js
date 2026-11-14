@@ -314,6 +314,21 @@ const GROUNDS = [
         "photos": [
           "2026-10-25-glenville-fc-east-wall-bessborough-1.jpg"
         ]
+      },
+      {
+        "title": "Glenville FC vs Palmerstown FC",
+        "date": "2026-11-14",
+        "score": "0–3",
+        "competition": "LSL Major 1 Saturday",
+        "caption": "Glenville FC 0–3 Palmerstown FC – Palmerstown Community School, 14 Nov 2026.",
+        "clubs": [
+          "Glenville FC",
+          "Palmerstown FC"
+        ],
+        "photos": [
+          "2026-11-14-glenville-fc-palmerstown-fc-1.jpg",
+          "2026-11-14-glenville-fc-palmerstown-fc-2.jpg"
+        ]
       }
     ]
   },

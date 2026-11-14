@@ -37,6 +37,7 @@ const CRESTS = {
   "Mount Merrion FC": "crests/mount-merrion-fc.png",
   "Mountview": "crests/mountview.png",
   "Newbridge Town FC": "crests/newbridge-town-fc.png",
+  "Palmerstown FC": "crests/palmerstown-fc.png",
   "Sacred Heart FC": "crests/sacred-heart-fc.png",
   "Shamrock Rovers": "crests/shamrock-rovers.png",
   "St Francis FC": "crests/st-francis-fc.png",
