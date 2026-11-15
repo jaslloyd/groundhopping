@@ -912,5 +912,26 @@ const GROUNDS = [
         ]
       }
     ]
+  },
+  {
+    "name": "St Catherine's Park, Lucan",
+    "lat": 53.37079,
+    "lon": -6.46666,
+    "games": [
+      {
+        "title": "Eagles FC vs Greenhills Greenpark FC",
+        "date": "2026-11-15",
+        "score": "6–1",
+        "competition": "FAI Junior Cup",
+        "caption": "Eagles FC 6–1 Greenhills Greenpark FC – St Catherine's Park, Lucan, 15 Nov 2026.",
+        "clubs": [
+          "Eagles FC",
+          "Greenhills Greenpark FC"
+        ],
+        "photos": [
+          "2026-11-15-eagles-fc-greenhills-greenpark-fc-1.jpg"
+        ]
+      }
+    ]
   }
 ];
