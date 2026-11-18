@@ -1,6 +1,7 @@
 // Club crests, keyed by the club name used in GROUNDS clubs.
 // Clubs missing from here get an initials badge instead.
 const CRESTS = {
+  "Arklow Town FC": "crests/arklow-town-fc.png",
   "Arthur Griffith Park FC": "crests/arthur-griffith-park-fc.png",
   "Ballyfermot United": "crests/ballyfermot-united.png",
   "Bangor Celtic": "crests/bangor-celtic.png",
