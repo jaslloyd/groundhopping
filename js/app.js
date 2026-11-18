@@ -38,6 +38,23 @@ const homeClub = (game) => {
   return clubs.find((club) => club === home) ?? clubs.find((club) => tidy(club) === tidy(home)) ?? null;
 };
 
+// A club's result in a game it played, from its side of the score ("2–1" is home first): "W", "D",
+// "L", or null when there's no score. If the home name in the title doesn't match ("St Pats"),
+// the away name might, and the home side is then the other club.
+const resultFor = (game, club) => {
+  const goals = game.score?.match(/^(\d+)\D+(\d+)$/);
+  if (!goals || !game.clubs?.includes(club)) return null;
+  let home = homeClub(game);
+  if (!home) {
+    const name = game.title.split(" vs ")[1];
+    const away = game.clubs.find((other) => other === name);
+    if (!away || game.clubs.length !== 2) return null;
+    home = game.clubs.find((other) => other !== away);
+  }
+  const [mine, theirs] = club === home ? [+goals[1], +goals[2]] : [+goals[2], +goals[1]];
+  return mine > theirs ? "W" : mine < theirs ? "L" : "D";
+};
+
 // A stable colour per club name, so placeholders don't change between visits.
 const colourFor = (name) => {
   const hash = [...name].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
@@ -312,6 +329,15 @@ const clubNames = Object.keys(gamesByClub).sort(
   (a, b) => gamesByClub[b].length - gamesByClub[a].length || a.localeCompare(b)
 );
 
+// "3W 1D 2L" from the games with a score; empty when none of them had one.
+const recordHtml = (club) => {
+  const results = gamesByClub[club].map((game) => resultFor(game, club)).filter(Boolean);
+  if (!results.length) return "";
+  const count = (r) => results.filter((result) => result === r).length;
+  return `<span class="club-record" title="Won ${count("W")}, drew ${count("D")}, lost ${count("L")}">` +
+    ["W", "D", "L"].map((r) => `<span class="${r.toLowerCase()}">${count(r)}${r}</span>`).join(" ") + "</span>";
+};
+
 const crestHtml = (club) =>
   CRESTS[club]
     ? `<img src="${CRESTS[club]}" alt="">`
@@ -323,6 +349,7 @@ function renderClubs() {
       ${crestHtml(club)}
       <span class="club-name">${club}</span>
       <span class="club-count">${plural(gamesByClub[club].length, "game")}</span>
+      ${recordHtml(club)}
     </button>`).join("");
 
   const found = clubNames.filter((club) => CRESTS[club]).length;
