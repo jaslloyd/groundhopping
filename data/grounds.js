@@ -37,11 +37,11 @@ const GROUNDS = [
     "club": "St Patrick's Athletic",
     "games": [
       {
-        "title": "St Pats vs Drogheda",
+        "title": "St Pats vs Drogheda United",
         "date": "2024-01-26",
         "score": "2–1",
         "competition": "Pre-season friendly",
-        "caption": "St Pats 2–1 Drogheda – pre-season friendly, TU Dublin Blanchardstown, 26 Jan 2024. Tommy Lonergan's last game for Pats before he joined Fleetwood Town.",
+        "caption": "St Pats 2–1 Drogheda United – pre-season friendly, TU Dublin Blanchardstown, 26 Jan 2024. Tommy Lonergan's last game for Pats before he joined Fleetwood Town.",
         "clubs": [
           "Drogheda United",
           "St Patrick's Athletic"

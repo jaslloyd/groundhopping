@@ -236,6 +236,14 @@ body {
   text-transform: uppercase;
 }
 
+.club-record {
+  font: 700 12px/1 var(--display);
+  letter-spacing: .06em;
+}
+.club-record .w { color: var(--pitch); }
+.club-record .d { color: var(--muted); }
+.club-record .l { color: #e0735f; }
+
 /* Expanded list of a club's games, inserted after the selected club's row */
 .club-games {
   grid-column: 1 / -1;
