@@ -219,7 +219,8 @@ function filterMapToClub(club) {
       marker.remove();
       return;
     }
-    marker.setIcon(pinIcon(clubGames.length, groundClubs[i], true));
+    // While filtered to a club, every pin shows that club's crest, home or away, not the ground's.
+    marker.setIcon(pinIcon(clubGames.length, club, true));
     marker.setPopupContent(popupHtml(ground, clubGames));
     marker.addTo(map);
     visible.push(marker);
