@@ -174,6 +174,24 @@ const GROUNDS = [
         "photos": [
           "2026-06-03-liffey-wanderers-bluebell-united-1.jpg"
         ]
+      },
+      {
+        "title": "Liffey Wanderers vs Arklow Town FC",
+        "date": "2026-11-18",
+        "score": "1–4",
+        "competition": "LSL Senior 1A Sunday",
+        "caption": "Liffey Wanderers 1–4 Arklow Town FC – Ringsend Park, 18 Nov 2026.",
+        "clubs": [
+          "Arklow Town FC",
+          "Liffey Wanderers"
+        ],
+        "tags": [
+          "Ringsend Park"
+        ],
+        "photos": [
+          "2026-11-18-liffey-wanderers-arklow-town-fc-1.jpg",
+          "2026-11-18-liffey-wanderers-arklow-town-fc-2.jpg"
+        ]
       }
     ]
   },
