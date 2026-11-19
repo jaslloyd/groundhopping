@@ -162,6 +162,20 @@ const markers = GROUNDS.map((ground, groundIndex) =>
     .addTo(map)
 );
 
+// A ground with lots of games makes a popup taller than the map, most of all on phones where
+// the map is only 55vh. Cap it to fit (leaving room for the tip and pan padding) so the list
+// scrolls inside the popup instead of running off the bottom.
+const fitPopupsToMap = () => {
+  const maxHeight = Math.max(160, map.getSize().y - 90);
+  markers.forEach((marker) => {
+    const popup = marker.getPopup();
+    popup.options.maxHeight = maxHeight;
+    if (popup.isOpen()) popup.update();
+  });
+};
+fitPopupsToMap();
+map.on("resize", fitPopupsToMap);
+
 const allGroundsBounds = L.featureGroup(markers).getBounds().pad(0.1);
 map.fitBounds(allGroundsBounds);
 
