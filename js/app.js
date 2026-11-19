@@ -721,6 +721,10 @@ const sharedTab = shared.get("tab")?.toLowerCase();
 if (sharedCard) {
   switchTab("clubs");
   selectClub(sharedCard);
+  // A club near the end of the grid would be out of sight below the fold, so bring it into the
+  // middle of the sidebar (clear of the sticky search box). Not on phones: there the page itself
+  // scrolls, and the map up top showing the club's grounds is what the link is for.
+  if (!matchMedia("(max-width: 760px)").matches) sharedCard.scrollIntoView({ block: "center" });
 } else if (sharedTab && Object.hasOwn(panels, sharedTab)) {
   switchTab(sharedTab);
 }
