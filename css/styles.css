@@ -188,6 +188,28 @@ body {
 
 /* ---------- Clubs tab ---------- */
 
+/* Search sticks to the top of the sidebar so it stays in reach down a long grid */
+.club-search {
+  position: sticky;
+  top: -20px; /* the sidebar's top padding, so it sits flush when stuck */
+  z-index: 1;
+  display: block;
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  font: 400 15px/1.2 var(--body);
+  box-shadow: 0 -20px 0 var(--panel); /* covers cards scrolling up behind the gap above it */
+}
+.club-search::placeholder { color: var(--muted); }
+.club-search:focus-visible { outline: 2px solid var(--pitch); outline-offset: -1px; border-color: transparent; }
+
+.club[hidden] { display: none; }
+.club-none { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+
 .club-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
@@ -591,4 +613,6 @@ body {
   body { grid-template-columns: 1fr; grid-template-rows: 55vh auto; height: auto; }
   #map { order: -1; height: 55vh; }
   .sidebar { overflow: visible; border-right: 0; }
+  /* The page scrolls here, not the sidebar, so stick to the top of the screen instead */
+  .club-search { top: 0; box-shadow: 0 -8px 0 var(--panel); }
 }

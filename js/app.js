@@ -354,11 +354,53 @@ function renderClubs() {
 
   const found = clubNames.filter((club) => CRESTS[club]).length;
   clubsPanel.innerHTML = `
+    <input class="club-search" type="search" placeholder="Search ${clubNames.length} clubs" aria-label="Search clubs" autocomplete="off">
     <div class="club-grid">${cards}</div>
+    <p class="club-none" hidden>No clubs match.</p>
     <p class="hint">${found} of ${clubNames.length} crests found · dashed badges are placeholders</p>`;
 }
 
 const clubGrid = () => clubsPanel.querySelector(".club-grid");
+const clubSearch = () => clubsPanel.querySelector(".club-search");
+
+// Lowercase with accents dropped, so "st patricks" finds "St. Patrick's" and "ballyfermot" finds
+// "Ballyfermot United". Punctuation goes too, and runs of spaces collapse to one.
+const searchable = (text) =>
+  text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim();
+
+// Hide the cards that don't match every word typed, then put the open games list back after
+// the selected club's row, since hiding cards moves which row it's on.
+function filterClubs() {
+  const words = searchable(clubSearch().value).split(" ").filter(Boolean);
+  let shown = 0;
+  for (const card of clubGrid().querySelectorAll(".club")) {
+    const name = searchable(card.dataset.club);
+    card.hidden = !words.every((word) => name.includes(word));
+    if (!card.hidden) shown++;
+  }
+  clubsPanel.querySelector(".club-none").hidden = shown > 0;
+
+  clubGrid().querySelector(".club-games")?.remove();
+  const selected = clubGrid().querySelector(".club.selected:not([hidden])");
+  if (selected) showClubGames(selected);
+}
+
+clubsPanel.addEventListener("input", (event) => {
+  if (event.target.matches(".club-search")) filterClubs();
+});
+
+// Enter picks the club when the search has narrowed it to one; Escape clears the search.
+clubsPanel.addEventListener("keydown", (event) => {
+  if (!event.target.matches(".club-search")) return;
+  if (event.key === "Enter") {
+    const visible = clubGrid().querySelectorAll(".club:not([hidden])");
+    if (visible.length === 1 && !visible[0].classList.contains("selected")) visible[0].click();
+  } else if (event.key === "Escape" && clubSearch().value) {
+    event.preventDefault();
+    clubSearch().value = "";
+    filterClubs();
+  }
+});
 
 function clearClubSelection() {
   clubGrid().querySelector(".club-games")?.remove();
@@ -371,7 +413,8 @@ function showClubGames(card) {
   const grid = clubGrid();
   const club = card.dataset.club;
   const columns = getComputedStyle(grid).gridTemplateColumns.split(" ").length;
-  const items = [...grid.children];
+  // Only the cards on show count towards rows, so this still lands right while searching.
+  const items = [...grid.querySelectorAll(".club:not([hidden])")];
   const index = items.indexOf(card);
   const rowEnd = Math.min(items.length - 1, index - (index % columns) + columns - 1);
 
