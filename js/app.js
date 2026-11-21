@@ -55,6 +55,15 @@ const resultFor = (game, club) => {
   return mine > theirs ? "W" : mine < theirs ? "L" : "D";
 };
 
+// "3W 1D 2L" for a club across some of its games, from the ones with a score; empty when none had one.
+const recordHtml = (club, clubGames = gamesByClub[club]) => {
+  const results = clubGames.map((game) => resultFor(game, club)).filter(Boolean);
+  if (!results.length) return "";
+  const count = (r) => results.filter((result) => result === r).length;
+  return `<span class="club-record" title="Won ${count("W")}, drew ${count("D")}, lost ${count("L")}">` +
+    ["W", "D", "L"].map((r) => `<span class="${r.toLowerCase()}">${count(r)}${r}</span>`).join(" ") + "</span>";
+};
+
 // A stable colour per club name, so placeholders don't change between visits.
 const colourFor = (name) => {
   const hash = [...name].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
@@ -154,15 +163,19 @@ const pinIcon = (count, club = null, highlighted = false) => {
   });
 };
 
-const popupHtml = (ground, gamesShown) =>
-  `<b>${ground.name}</b><ul>${gamesShown
+// The popup names the ground and, once I've seen more than one game there, gives the pin's club's
+// record at it: the home club normally, or the picked club while the map is filtered to one.
+const popupHtml = (ground, gamesShown, club) => {
+  const record = club && gamesShown.length > 1 ? recordHtml(club, gamesShown) : "";
+  return `<b>${ground.name}</b>${record ? `<div class="popup-record">${club} ${record}</div>` : ""}<ul>${gamesShown
     .map((game) => `<li>${shortDate(game.date)} ${game.date.slice(0, 4)} · ${matchLabel(game)}${game.competition ? `<br><small>${game.competition}</small>` : ""}${thumbHtml(game)}</li>`)
     .join("")}</ul>`;
+};
 
 // One marker per ground, in the same order as GROUNDS.
 const markers = GROUNDS.map((ground, groundIndex) =>
   L.marker([ground.lat, ground.lon], { icon: pinIcon(ground.games.length, groundClubs[groundIndex]) })
-    .bindPopup(popupHtml(ground, ground.games))
+    .bindPopup(popupHtml(ground, ground.games, groundClubs[groundIndex]))
     .addTo(map)
 );
 
@@ -256,7 +269,7 @@ function filterMapToClub(club) {
     }
     // While filtered to a club, every pin shows that club's crest, home or away, not the ground's.
     marker.setIcon(pinIcon(clubGames.length, club, true));
-    marker.setPopupContent(popupHtml(ground, clubGames));
+    marker.setPopupContent(popupHtml(ground, clubGames, club));
     marker.addTo(map);
     visible.push(marker);
   });
@@ -282,7 +295,7 @@ function showAllGrounds() {
   showAllControl.remove();
   GROUNDS.forEach((ground, i) => {
     markers[i].setIcon(pinIcon(ground.games.length, groundClubs[i]));
-    markers[i].setPopupContent(popupHtml(ground, ground.games));
+    markers[i].setPopupContent(popupHtml(ground, ground.games, groundClubs[i]));
     markers[i].addTo(map);
   });
   map.flyToBounds(allGroundsBounds, { duration: 0.8 });
@@ -346,15 +359,6 @@ const clubsPanel = document.getElementById("clubs");
 const clubNames = Object.keys(gamesByClub).sort(
   (a, b) => gamesByClub[b].length - gamesByClub[a].length || a.localeCompare(b)
 );
-
-// "3W 1D 2L" from the games with a score; empty when none of them had one.
-const recordHtml = (club) => {
-  const results = gamesByClub[club].map((game) => resultFor(game, club)).filter(Boolean);
-  if (!results.length) return "";
-  const count = (r) => results.filter((result) => result === r).length;
-  return `<span class="club-record" title="Won ${count("W")}, drew ${count("D")}, lost ${count("L")}">` +
-    ["W", "D", "L"].map((r) => `<span class="${r.toLowerCase()}">${count(r)}${r}</span>`).join(" ") + "</span>";
-};
 
 const crestHtml = (club) =>
   CRESTS[club]
