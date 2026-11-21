@@ -719,16 +719,19 @@ const GROUNDS = [
     ]
   },
   {
-    "name": "Lucan",
+    "name": "Griffeen Valley Park, Lucan",
     "lat": 53.3466,
     "lon": -6.44416,
     "games": [
       {
-        "title": "Arthur Griffith Park FC vs ?",
+        "title": "Arthur Griffith Park FC vs Broombridge United",
         "date": "2026-09-26",
-        "caption": "Arthur Griffith Park FC vs ? – Lucan, 26 Sep 2026.",
+        "score": "2–2",
+        "competition": "UCFL Division 3",
+        "caption": "Arthur Griffith Park FC 2–2 Broombridge United – Griffeen Valley Park, Lucan, 26 Sep 2026.",
         "clubs": [
-          "Arthur Griffith Park FC"
+          "Arthur Griffith Park FC",
+          "Broombridge United"
         ],
         "photos": [
           "2026-09-26-arthur-griffith-park-fc-1.jpg",
