@@ -2,7 +2,8 @@
 // A ground's map pin shows the crest of the club I've most often watched host there, worked out
 // from the games, so it normally needs nothing here. Set "club" to overrule that, or to null for
 // a plain numbered pin where no one is really at home: a neutral venue or a selection side.
-// Each game: title ("Home vs Away"), date (YYYY-MM-DD), optional score ("2–2", home first),
+// Each game: title ("Home vs Away"), date (YYYY-MM-DD), optional time ("14:32", local time of my
+// first photo; only needed to order two games on the same day), optional score ("2–2", home first),
 // optional competition (league or cup, from Final Whistle), caption, clubs (the teams that played)
 // and optional tags (anything else keyworded in Photos: the competition type, places, people).
 const GROUNDS = [
@@ -422,6 +423,7 @@ const GROUNDS = [
       {
         "title": "Dublin Bus FC vs Blackrock College AFC",
         "date": "2026-10-24",
+        "time": "13:22",
         "score": "1–4",
         "competition": "LSL Noel Ryan Cup",
         "caption": "Dublin Bus FC 1–4 Blackrock College AFC – Inchicore, 24 Oct 2026.",
@@ -834,6 +836,7 @@ const GROUNDS = [
       {
         "title": "Belgard Athletic vs Kinsealy United",
         "date": "2026-10-24",
+        "time": "12:09",
         "score": "8–3",
         "competition": "Leinster FA Men's Junior Shield",
         "caption": "Belgard Athletic 8–3 Kinsealy United – Ballymount Park, Clondalkin, 24 Oct 2026.",
@@ -985,6 +988,7 @@ const GROUNDS = [
       {
         "title": "Palmerstown FC vs Liffey Wanderers",
         "date": "2026-11-21",
+        "time": "12:16",
         "score": "3–2",
         "competition": "LSL Major 1 Saturday",
         "caption": "Palmerstown FC 3–2 Liffey Wanderers – Mill Lane, Palmerstown, 21 Nov 2026.",
@@ -1008,6 +1012,7 @@ const GROUNDS = [
       {
         "title": "OLV FC vs Larkview FC",
         "date": "2026-11-21",
+        "time": "14:32",
         "score": "0–1",
         "competition": "UCFL Division 3C",
         "caption": "OLV FC 0–1 Larkview FC – Markievicz Park, Ballyfermot, 21 Nov 2026.",

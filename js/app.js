@@ -79,11 +79,15 @@ const scrollToMapOnPhones = () => {
 
 // ---------- Data ----------
 
+// Newest first. A game's date has no time of day, so when I've been to two games on the same
+// day the optional "time" (my first photo of each) says which came later.
+const newestFirst = (a, b) => b.date.localeCompare(a.date) || (b.time ?? "").localeCompare(a.time ?? "");
+
 // Every game, newest first, remembering which ground it was at. The game objects are shared
 // with GROUNDS, so a game's id works whether it came from a ground or from this list.
 const games = GROUNDS
   .flatMap((ground, groundIndex) => ground.games.map((game) => Object.assign(game, { groundIndex, groundName: ground.name })))
-  .sort((a, b) => b.date.localeCompare(a.date));
+  .sort(newestFirst);
 games.forEach((game, id) => (game.id = id));
 
 // Club name -> the games I saw them play (charity matches don't count).
@@ -105,7 +109,7 @@ const groundClubs = GROUNDS.map((ground) => {
   if ("club" in ground) return ground.club;
 
   const seen = new Map(); // club -> games watched hosting here, newest game first within each
-  for (const game of [...ground.games].sort((a, b) => b.date.localeCompare(a.date))) {
+  for (const game of [...ground.games].sort(newestFirst)) {
     const club = homeClub(game);
     if (club) seen.set(club, (seen.get(club) ?? 0) + 1);
   }
