@@ -954,5 +954,27 @@ const GROUNDS = [
         ]
       }
     ]
+  },
+  {
+    "name": "Greendale Road, Kilbarrack",
+    "lat": 53.38518,
+    "lon": -6.15697,
+    "games": [
+      {
+        "title": "Kilbarrack United vs UCD",
+        "date": "2026-11-20",
+        "score": "3–0",
+        "competition": "LSL Charlie Cahill Cup",
+        "caption": "Kilbarrack United 3–0 UCD – Greendale Road, Kilbarrack, 20 Nov 2026.",
+        "clubs": [
+          "Kilbarrack United",
+          "UCD"
+        ],
+        "photos": [
+          "2026-11-20-kilbarrack-united-ucd-1.jpg",
+          "2026-11-20-kilbarrack-united-ucd-2.jpg"
+        ]
+      }
+    ]
   }
 ];
