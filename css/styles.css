@@ -537,6 +537,12 @@ body {
 }
 .leaflet-popup-content ul { margin: 6px 0 0; padding-left: 16px; }
 .leaflet-popup-content small { color: #5d6b62; font-size: 12px; }
+/* The pin's club's W-D-L at this ground; the popup stays white in dark mode, so fixed colours */
+.popup-record { margin-top: 2px; color: #5d6b62; font-size: 12px; }
+.popup-record .club-record { margin-left: 4px; }
+.popup-record .w { color: #1f7a4a; }
+.popup-record .d { color: #5d6b62; }
+.popup-record .l { color: #c4533d; }
 
 .show-all {
   cursor: pointer;
