@@ -976,5 +976,28 @@ const GROUNDS = [
         ]
       }
     ]
+  },
+  {
+    "name": "Mill Lane, Palmerstown",
+    "lat": 53.35515,
+    "lon": -6.36366,
+    "games": [
+      {
+        "title": "Palmerstown FC vs Liffey Wanderers",
+        "date": "2026-11-21",
+        "score": "3–2",
+        "competition": "LSL Major 1 Saturday",
+        "caption": "Palmerstown FC 3–2 Liffey Wanderers – Mill Lane, Palmerstown, 21 Nov 2026.",
+        "clubs": [
+          "Liffey Wanderers",
+          "Palmerstown FC"
+        ],
+        "photos": [
+          "2026-11-21-palmerstown-fc-liffey-wanderers-1.jpg",
+          "2026-11-21-palmerstown-fc-liffey-wanderers-2.jpg",
+          "2026-11-21-palmerstown-fc-liffey-wanderers-3.jpg"
+        ]
+      }
+    ]
   }
 ];
