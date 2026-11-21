@@ -385,8 +385,18 @@ function filterClubs() {
   if (selected) showClubGames(selected);
 }
 
+// On phones the page scrolls, not the sidebar, so lift the search to the top of the screen
+// while typing: that leaves the results room below it, above the keyboard.
+const liftSearchOnPhones = () => {
+  if (innerWidth > PHONE_WIDTH) return;
+  const top = clubsPanel.getBoundingClientRect().top + scrollY;
+  if (scrollY < top) scrollTo({ top });
+};
+
 clubsPanel.addEventListener("input", (event) => {
-  if (event.target.matches(".club-search")) filterClubs();
+  if (!event.target.matches(".club-search")) return;
+  filterClubs();
+  liftSearchOnPhones();
 });
 
 // Enter picks the club when the search has narrowed it to one; Escape clears the search.
