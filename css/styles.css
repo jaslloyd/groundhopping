@@ -615,4 +615,7 @@ body {
   .sidebar { overflow: visible; border-right: 0; }
   /* The page scrolls here, not the sidebar, so stick to the top of the screen instead */
   .club-search { top: 0; box-shadow: 0 -8px 0 var(--panel); }
+  /* At least a screen tall, so a search that narrows to a few clubs doesn't shorten the page
+     enough to drag the search down and the results under the keyboard */
+  #clubs { min-height: 100vh; }
 }
