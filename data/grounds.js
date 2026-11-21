@@ -999,5 +999,27 @@ const GROUNDS = [
         ]
       }
     ]
+  },
+  {
+    "name": "Markievicz Park, Ballyfermot",
+    "lat": 53.3411,
+    "lon": -6.34014,
+    "games": [
+      {
+        "title": "OLV FC vs Larkview FC",
+        "date": "2026-11-21",
+        "score": "0–1",
+        "competition": "UCFL Division 3C",
+        "caption": "OLV FC 0–1 Larkview FC – Markievicz Park, Ballyfermot, 21 Nov 2026.",
+        "clubs": [
+          "Larkview FC",
+          "OLV FC"
+        ],
+        "photos": [
+          "2026-11-21-olv-fc-larkview-fc-1.jpg",
+          "2026-11-21-olv-fc-larkview-fc-2.jpg"
+        ]
+      }
+    ]
   }
 ];
