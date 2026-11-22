@@ -184,8 +184,6 @@ body {
   font: 700 11px/1.2 var(--display);
 }
 
-.leaflet-popup-content .thumb { display: block; width: 120px; height: 90px; margin: 4px 0 2px; }
-
 /* ---------- Clubs tab ---------- */
 
 /* Search sticks to the top of the sidebar so it stays in reach down a long grid */
@@ -536,6 +534,19 @@ body {
   text-transform: uppercase;
 }
 .leaflet-popup-content ul { margin: 6px 0 0; padding-left: 16px; }
+/* One row per game: thumbnail on the left, date · competition over the match on the right */
+.leaflet-popup-content .popup-games { margin-top: 8px; padding: 0; list-style: none; }
+.popup-games li {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  border-top: 1px solid #e3e8e4;
+}
+.popup-games .thumb { display: block; width: 64px; height: 48px; }
+.popup-games .thumb.empty { background: #eef2ef; cursor: default; outline: none; }
+.popup-match { line-height: 1.3; }
 .leaflet-popup-content small { color: #5d6b62; font-size: 12px; }
 /* The pin's club's W-D-L at this ground; the popup stays white in dark mode, so fixed colours */
 .popup-record { margin-top: 2px; color: #5d6b62; font-size: 12px; }
