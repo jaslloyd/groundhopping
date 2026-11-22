@@ -717,6 +717,20 @@ const GROUNDS = [
           "2026-11-08-greenhills-greenpark-fc-cherry-orchard-fc-1.jpg",
           "2026-11-08-greenhills-greenpark-fc-cherry-orchard-fc-2.jpg"
         ]
+      },
+      {
+        "title": "Greenhills Greenpark FC vs Marks Celtic FC",
+        "date": "2026-11-22",
+        "score": "2–1",
+        "competition": "LSL Premier Sunday",
+        "caption": "Greenhills Greenpark FC 2–1 Marks Celtic FC – Greenhills Park, 22 Nov 2026.",
+        "clubs": [
+          "Greenhills Greenpark FC",
+          "Marks Celtic FC"
+        ],
+        "photos": [
+          "2026-11-22-greenhills-greenpark-fc-marks-celtic-fc-1.jpg"
+        ]
       }
     ]
   },
