@@ -165,10 +165,17 @@ const pinIcon = (count, club = null, highlighted = false) => {
 
 // The popup names the ground and, once I've seen more than one game there, gives the pin's club's
 // record at it: the home club normally, or the picked club while the map is filtered to one.
+// Each game is a compact row, thumbnail beside the details, so a ground I keep going back to
+// doesn't need a popup taller than the map.
 const popupHtml = (ground, gamesShown, club) => {
   const record = club && gamesShown.length > 1 ? recordHtml(club, gamesShown) : "";
-  return `<b>${ground.name}</b>${record ? `<div class="popup-record">${club} ${record}</div>` : ""}<ul>${gamesShown
-    .map((game) => `<li>${shortDate(game.date)} ${game.date.slice(0, 4)} · ${matchLabel(game)}${game.competition ? `<br><small>${game.competition}</small>` : ""}${thumbHtml(game)}</li>`)
+  return `<b>${ground.name}</b>${record ? `<div class="popup-record">${club} ${record}</div>` : ""}<ul class="popup-games">${gamesShown
+    .map(
+      (game) =>
+        `<li>${thumbHtml(game) || `<span class="thumb empty"></span>`}<div>` +
+        `<small>${shortDate(game.date)} ${game.date.slice(0, 4)}${game.competition ? ` · ${game.competition}` : ""}</small>` +
+        `<div class="popup-match">${matchLabel(game)}</div></div></li>`
+    )
     .join("")}</ul>`;
 };
 
