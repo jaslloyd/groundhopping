@@ -36,6 +36,7 @@ const CRESTS = {
   "Lucan United FC": "crests/lucan-united-fc.png",
   "Lusk United AFC": "crests/lusk-united-afc.png",
   "Malahide United": "crests/malahide-united.png",
+  "Marks Celtic FC": "crests/marks-celtic-fc.png",
   "Monread FC": "crests/monread-fc.png",
   "Mount Merrion FC": "crests/mount-merrion-fc.png",
   "Mountview": "crests/mountview.png",
