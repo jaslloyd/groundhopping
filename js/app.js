@@ -203,10 +203,17 @@ map.on("resize", fitPopupsToMap);
 const allGroundsBounds = L.featureGroup(markers).getBounds().pad(0.1);
 map.fitBounds(allGroundsBounds);
 
+// The popup opens straight away, but its pan to fit on screen happens mid-flight and the fly then
+// lands with the marker centred, leaving the top of a tall popup above the map. Updating it once
+// the fly lands re-runs that pan from where the map actually ended up. It waits for zoomend, not
+// moveend: the popup's own pan fires a moveend part way through the fly.
 const flyToGround = (groundIndex) => {
   const marker = markers[groundIndex];
   map.flyTo(marker.getLatLng(), 15, { duration: 0.8 });
   marker.openPopup();
+  map.once("zoomend", () => {
+    if (marker.isPopupOpen()) marker.getPopup().update();
+  });
   scrollToMapOnPhones();
 };
 
