@@ -476,6 +476,20 @@ const GROUNDS = [
         "photos": [
           "2026-06-02-sacred-heart-st-patricks-cy-1.jpg"
         ]
+      },
+      {
+        "title": "Sacred Heart FC vs Ballyfermot United",
+        "date": "2026-11-25",
+        "score": "1–2",
+        "competition": "LSL Senior 1 Sunday",
+        "caption": "Sacred Heart FC 1–2 Ballyfermot United – Sacred Heart FC, Kiltipper, Tallaght, 25 Nov 2026.",
+        "clubs": [
+          "Ballyfermot United",
+          "Sacred Heart FC"
+        ],
+        "photos": [
+          "2026-11-25-sacred-heart-fc-ballyfermot-united-1.jpg"
+        ]
       }
     ]
   },
