@@ -275,6 +275,8 @@ body {
 
 .club-games ul { margin: 4px 0 0; padding-left: 16px; }
 .club-games li { cursor: pointer; }
+.club-home { margin-top: 2px; color: var(--muted); }
+.club-home a { color: var(--pitch); }
 .club-games li:hover { color: var(--pitch); }
 
 .hint { margin: 12px 0 0; color: var(--muted); font-size: 12px; }
@@ -551,6 +553,7 @@ body {
 /* The pin's club's W-D-L at this ground; the popup stays white in dark mode, so fixed colours */
 .popup-record { margin-top: 2px; color: #5d6b62; font-size: 12px; }
 .popup-record .club-record { margin-left: 4px; }
+.leaflet-popup-content .maps-link { display: inline-block; margin-top: 4px; color: #1f7a4a; font-size: 12px; }
 .popup-record .w { color: #1f7a4a; }
 .popup-record .d { color: #5d6b62; }
 .popup-record .l { color: #c4533d; }
