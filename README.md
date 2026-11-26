@@ -7,7 +7,7 @@ A map of the Leinster Senior League football games I go to, plus the odd pre-sea
 **Live:** https://jaslloyd.github.io/groundhopping/ — or open `index.html` locally. No build step, no server.
 
 - **Games** tab: every game, newest first. Click one to fly to the ground.
-- **Clubs** tab: every club I've seen, with how many times. Click a club to filter the map to just its grounds and games.
+- **Clubs** tab: every club I've seen, with how many times. Click a club to filter the map to just its grounds and games. Its home ground links to Google Maps, and so does every ground's map popup.
 - **Grounds** tab: every ground A–Z with the date I was last there, and how many games when I've been more than once. Click one to fly to it.
 - **Numbers** tab: goals seen, how the results split between home wins, draws and away wins, which months I actually go, the grounds I keep going back to and the competitions I've seen. All of it worked out from the games, so it keeps itself up to date.
 - **Map pins:** each ground wears the crest of the club I've most often watched host there, with a badge for the number of games once I've been more than once. A lot of these are council and school pitches that several clubs play out of, so the crest says who I saw at home rather than whose ground it is, and it re-works itself out of the games as I add them. Neutral venues — pre-season friendlies, the selection game — keep a plain numbered pin. Once I've seen more than one game at a ground, its popup gives that club's W-D-L there (or the picked club's, while the map is filtered to one).

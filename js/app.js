@@ -163,13 +163,18 @@ const pinIcon = (count, club = null, highlighted = false) => {
   });
 };
 
+// Google Maps at the ground's own coordinates: a lot of these are council or school pitches
+// that a name search wouldn't find. On a phone this opens the Maps app.
+const mapsUrl = (ground) => `https://www.google.com/maps/search/?api=1&query=${ground.lat},${ground.lon}`;
+
 // The popup names the ground and, once I've seen more than one game there, gives the pin's club's
 // record at it: the home club normally, or the picked club while the map is filtered to one.
 // Each game is a compact row, thumbnail beside the details, so a ground I keep going back to
 // doesn't need a popup taller than the map.
 const popupHtml = (ground, gamesShown, club) => {
   const record = club && gamesShown.length > 1 ? recordHtml(club, gamesShown) : "";
-  return `<b>${ground.name}</b>${record ? `<div class="popup-record">${club} ${record}</div>` : ""}<ul class="popup-games">${gamesShown
+  return `<b>${ground.name}</b>${record ? `<div class="popup-record">${club} ${record}</div>` : ""}` +
+    `<a class="maps-link" href="${mapsUrl(ground)}" target="_blank" rel="noopener">Open in Google Maps ↗</a><ul class="popup-games">${gamesShown
     .map(
       (game) =>
         `<li>${thumbHtml(game) || `<span class="thumb empty"></span>`}<div>` +
@@ -466,7 +471,14 @@ function showClubGames(card) {
 
   const panel = document.createElement("div");
   panel.className = "club-games";
-  panel.innerHTML = `<b>${club}</b><ul>${gamesByClub[club]
+  // The grounds where the map pin wears this club's crest, i.e. where I've seen them at home.
+  const homeGrounds = GROUNDS.filter((_, i) => groundClubs[i] === club);
+  const homeLine = homeGrounds.length
+    ? `<div class="club-home">${homeGrounds.length > 1 ? "Home grounds" : "Home ground"}: ${homeGrounds
+        .map((ground) => `<a href="${mapsUrl(ground)}" target="_blank" rel="noopener">${ground.name} ↗</a>`)
+        .join(", ")}</div>`
+    : "";
+  panel.innerHTML = `<b>${club}</b>${homeLine}<ul>${gamesByClub[club]
     .map((game) => `<li data-ground="${game.groundIndex}">${shortDate(game.date)} ${game.date.slice(0, 4)} · ${matchLabel(game)} <span class="game-ground">(${venueLine(game)})</span></li>`)
     .join("")}</ul>`;
   items[rowEnd].after(panel);
