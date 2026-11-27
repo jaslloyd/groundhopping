@@ -241,6 +241,22 @@ const GROUNDS = [
           "2026-04-02-usher-celtic-killester-1.jpg",
           "2026-04-02-usher-celtic-killester-2.jpg"
         ]
+      },
+      {
+        "title": "Montpelier FC vs Inchicore Athletic FC",
+        "date": "2026-11-27",
+        "score": "3–3",
+        "competition": "LSL Senior Sunday",
+        "caption": "Montpelier FC 3–3 Inchicore Athletic FC – Grangegorman, 27 Nov 2026.",
+        "clubs": [
+          "Inchicore Athletic FC",
+          "Montpelier FC"
+        ],
+        "photos": [
+          "2026-11-27-montpelier-fc-inchicore-athletic-fc-1.jpg",
+          "2026-11-27-montpelier-fc-inchicore-athletic-fc-2.jpg",
+          "2026-11-27-montpelier-fc-inchicore-athletic-fc-3.jpg"
+        ]
       }
     ]
   },
