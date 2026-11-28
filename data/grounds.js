@@ -761,6 +761,20 @@ const GROUNDS = [
         "photos": [
           "2026-11-22-greenhills-greenpark-fc-marks-celtic-fc-1.jpg"
         ]
+      },
+      {
+        "title": "Greenhills Greenpark FC vs Greystones United AFC",
+        "date": "2026-11-28",
+        "score": "0–3",
+        "competition": "LSL Division 3C Saturday",
+        "caption": "Greenhills Greenpark FC 0–3 Greystones United AFC – Greenhills Park, 28 Nov 2026.",
+        "clubs": [
+          "Greenhills Greenpark FC",
+          "Greystones United AFC"
+        ],
+        "photos": [
+          "2026-11-28-greenhills-greenpark-fc-greystones-united-afc-1.jpg"
+        ]
       }
     ]
   },
